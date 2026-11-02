@@ -122,3 +122,137 @@ test('imageCandidates: 위키미디어 파일 이름 규칙', () => {
   const ca = R.normalize({ id: 'cups_ace', suit: 'cups', rank: 'ace', nameKo: '컵 에이스' });
   assert.match(R.imageCandidates(ca)[0], /Cups01\.jpg/);
 });
+
+// ---------- 나이·성별, 조사, 총평 ----------
+
+test('parseAge: 빈 칸은 통과, 1~120 정수만 받는다', () => {
+  assert.deepEqual(R.parseAge(''), { ok: true, value: null });
+  assert.deepEqual(R.parseAge('   '), { ok: true, value: null });
+  assert.deepEqual(R.parseAge(null), { ok: true, value: null });
+  assert.deepEqual(R.parseAge('17'), { ok: true, value: 17 });
+  assert.deepEqual(R.parseAge(' 1 '), { ok: true, value: 1 });
+  assert.deepEqual(R.parseAge('120'), { ok: true, value: 120 });
+  for (const bad of ['0', '121', '999', '-3', '17.5', '열일곱', '17세', '1e2', '0x11', '1 7']) {
+    const r = R.parseAge(bad);
+    assert.equal(r.ok, false, bad);
+    assert.equal(r.value, null, bad);
+    assert.match(r.message, /1~120/, bad);
+  }
+});
+
+test('profileText: 입력한 것만 짧게 보여 준다', () => {
+  assert.equal(R.profileText({ age: 17, gender: 'female' }), '17세 여성');
+  assert.equal(R.profileText({ age: null, gender: 'male' }), '남성');
+  assert.equal(R.profileText({ age: 40, gender: 'none' }), '40세');
+  assert.equal(R.profileText({ age: null, gender: 'none' }), '');
+  assert.equal(R.profileText({ gender: '모름' }), '');
+  assert.equal(R.profileText(undefined), '');
+});
+
+test('josa: 받침에 맞는 조사 (숫자·괄호 포함)', () => {
+  assert.equal(R.josa('바보', '이가'), '가');
+  assert.equal(R.josa('운명의 수레바퀴', '은는'), '는');
+  assert.equal(R.josa('달', '이가'), '이');
+  assert.equal(R.josa('컵 2', '이가'), '가');
+  assert.equal(R.josa('완드 10', '이가'), '이');
+  assert.equal(R.josa('소드 7', '은는'), '은');
+  assert.equal(R.josa('친구 관계', '을를'), '를');
+  assert.equal(R.josa('연애 흐름', '을를'), '을');
+  assert.equal(R.josa('새로운 시작', '과와'), '과');
+  assert.equal(R.josa('자유', '과와'), '와');
+  assert.equal(R.josa('결실', '으로'), '로'); // ㄹ받침은 '로'
+  assert.equal(R.josa('충격', '으로'), '으로');
+  assert.equal(R.josa('자유', '으로'), '로');
+  assert.equal(R.josa('‘시작’', '이가'), '이'); // 따옴표는 건너뜀
+  assert.throws(() => R.josa('바보', '의'));
+});
+
+test('connector: 교안 연결법 — 북돋움 그래서, 부딪침 하지만, 나머지 그리고', () => {
+  const f = card('f', 'fire');
+  const w = card('w', 'water');
+  const a = card('a', 'air');
+  const e = card('e', 'earth');
+  const m = card('m', null);
+  assert.equal(R.connector(f, a), '그래서');
+  assert.equal(R.connector(w, w), '그래서');
+  assert.equal(R.connector(f, w), '하지만');
+  assert.equal(R.connector(a, e), '하지만');
+  assert.equal(R.connector(f, e), '그리고');
+  assert.equal(R.connector(m, f), '그리고');
+});
+
+const realDeck = R.buildDeck([
+  ...require('../js/data/major.js'),
+  ...require('../js/data/wands.js'),
+  ...require('../js/data/cups.js'),
+  ...require('../js/data/swords.js'),
+  ...require('../js/data/pentacles.js')
+]);
+const byId = (id) => realDeck.find((c) => c.id === id);
+
+test('summarize: 예시 — 과거/현재/미래, 친구 관계, 17세 여성', () => {
+  const hand = [byId('cups_2'), byId('cups_3'), byId('cups_4')];
+  const s = R.summarize(hand, 'friend', 'time', { age: 17, gender: 'female' });
+  assert.equal(s.opening, '17세 여성의 친구 관계를 세 장으로 이어 읽으면 이렇습니다.');
+  assert.equal(s.flow[0], '‘과거’ 자리에는 컵 2가 나와 화합과 파트너를 보여 줍니다.');
+  assert.equal(s.flow[1], '그래서 ‘현재’ 자리의 컵 3은 즐거움과 어울림을 말합니다.');
+  assert.equal(s.flow[2], '그래서 ‘미래’ 자리의 컵 4에서 권태와 시큰둥함으로 이어집니다.');
+  assert.equal(s.endingLead, '앞으로의 흐름은 컵 4 카드가 말해 줍니다.');
+  assert.equal(s.endingText, byId('cups_4').areas.friend);
+  assert.match(s.notes[0], /북돋아/); // 같은 원소 셋 → 가운데 강함
+});
+
+test('summarize: 부딪치는 원소는 하지만, 메이저 마지막 카드는 마음가짐 안내', () => {
+  const hand = [byId('wands_ace'), byId('cups_5'), byId('major_17')];
+  const s = R.summarize(hand, 'newterm', 'advice', { age: null, gender: 'none' });
+  assert.equal(s.opening, '새학기를 세 장으로 이어 읽으면 이렇습니다.');
+  assert.equal(s.flow[1], '이 상황에서 카드가 건네는 조언은 컵 5의 ‘실망’입니다.');
+  assert.match(s.flow[2], /^그리고 /); // 컵–메이저는 중립
+  assert.equal(s.endingLead, '조언을 따랐을 때의 결과는 별 카드가 말해 줍니다.');
+  assert.ok(s.notes.some((n) => n.includes('마지막 카드가 메이저')));
+  const t = R.summarize([byId('wands_ace'), byId('cups_5'), byId('wands_2')], 'family', 'time', {});
+  assert.match(t.flow[1], /^하지만 /);
+  assert.match(t.flow[2], /^하지만 /);
+  assert.match(t.notes[0], /약하게/);
+});
+
+test('summarize: 양옆 상쇄와 가운데 메이저', () => {
+  const pure = R.summarize([byId('wands_2'), byId('pentacles_3'), byId('cups_9')], 'career', 'obstacle', {});
+  assert.equal(pure.flow[1], '이때 걸림돌은 펜타클 3이 보여 주는 ‘협업’입니다.');
+  assert.match(pure.notes[0], /펜타클 3의 ‘협업’이 이 이야기의 중심/);
+  assert.equal(pure.endingLead, '걸림돌을 지난 뒤의 결과는 컵 9 카드가 말해 줍니다.');
+  const major = R.summarize([byId('wands_2'), byId('major_09'), byId('cups_9')], 'love', 'relation', {});
+  assert.match(major.notes[0], /가운데 메이저 카드 은둔자는/);
+  assert.equal(major.endingLead, '두 사람의 관계는 컵 9 카드가 말해 줍니다.');
+});
+
+test('summarize: 모든 영역·배열·무작위 조합에서 빈칸 없는 문장이 나온다', () => {
+  const profiles = [{}, { age: 17, gender: 'female' }, { age: 45, gender: 'male' }, { age: null, gender: 'none' }];
+  let n = 0;
+  for (let t = 0; t < 300; t++) {
+    const hand = R.draw(realDeck, 3);
+    for (const area of R.AREAS) {
+      for (const spread of R.SPREADS) {
+        const s = R.summarize(hand, area.key, spread.key, profiles[t % profiles.length]);
+        const all = [s.opening, ...s.flow, s.endingLead, s.endingText, ...s.notes];
+        assert.equal(s.flow.length, 3);
+        assert.ok(s.notes.length >= 1);
+        for (const text of all) {
+          assert.equal(typeof text, 'string');
+          assert.ok(text.length > 5, text);
+          assert.ok(!/undefined|null|NaN|\[object/.test(text), text);
+        }
+        assert.equal(s.endingText, hand[2].areas[area.key]);
+        n++;
+      }
+    }
+  }
+  assert.equal(n, 300 * 11 * 4);
+});
+
+test('summarize: 잘못된 입력은 오류', () => {
+  const hand = R.draw(realDeck, 3);
+  assert.throws(() => R.summarize(hand.slice(0, 2), 'love', 'time', {}));
+  assert.throws(() => R.summarize(hand, 'nope', 'time', {}));
+  assert.doesNotThrow(() => R.summarize(hand, 'love', 'nope', {})); // 모르는 배열은 첫 배열로
+});

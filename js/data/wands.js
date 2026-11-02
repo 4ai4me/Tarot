@@ -15,9 +15,13 @@
         study: '의욕이 막 붙기 시작한다. 이 기세를 이어 가면 성적이 오른다.',
         business: '사업에 좋은 기회가 등장한다.',
         money: '재물 흐름에 좋은 기회가 온다.',
-        move: '떠날 수 있는 상황과 기회가 주어진다.'
+        move: '떠날 수 있는 상황과 기회가 주어진다.',
+        friend: '새 친구에게 강하게 끌리고 먼저 다가가고 싶어진다. 함께할 거리가 생긴다.',
+        newterm: '새 출발의 의욕이 크다. 해 보고 싶은 활동이 생긴다.',
+        career: '하고 싶은 일이 처음으로 분명하게 떠오른다. 이 열정을 행동으로 옮길 때다.',
+        family: '가족과 함께 새로 해 보려는 일이 생긴다. 집안에 활기가 돈다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_2', suit: 'wands', rank: '2', nameKo: '완드 2',
@@ -30,9 +34,13 @@
         study: '목표를 세우는 단계다. 계획을 실행으로 옮겨야 성적이 오른다.',
         business: '새 계획을 세우고 조금씩 손을 대는 단계다. 빠르지는 않지만 진전이 있다.',
         money: '하던 일에 집중하느라 새 돈줄은 천천히 열린다.',
-        move: '계획하고 바라보는 중이다. 당장은 아니지만 움직일 가능성은 있다.'
+        move: '계획하고 바라보는 중이다. 당장은 아니지만 움직일 가능성은 있다.',
+        friend: '관심은 있지만 다른 일이 우선이라 관계가 천천히 간다.',
+        newterm: '새 학기 계획을 세우며 주변을 살핀다. 바로 뛰어들기보다 둘러보는 단계다.',
+        career: '여러 길을 놓고 큰 그림을 그린다. 아직 결정보다는 구상하는 시기다.',
+        family: '가족과 앞으로의 계획을 이야기한다. 실제로 움직이는 것은 조금 뒤다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_3', suit: 'wands', rank: '3', nameKo: '완드 3',
@@ -45,9 +53,13 @@
         study: '장기 목표를 향해 가는 중이다. 이번 시험보다 길게 볼 때 성과가 난다.',
         business: '당장 결과가 나오지는 않지만 길게 보면 발전할 판을 짜는 중이다.',
         money: '빠른 수익은 아니다. 장기적으로 키워 가는 흐름이다.',
-        move: '자기 일에 몰두해 있어 이동에는 마음을 쓰지 못한다.'
+        move: '자기 일에 몰두해 있어 이동에는 마음을 쓰지 못한다.',
+        friend: '내 목표에 집중하느라 친구를 돌아보지 못한다. 친구가 서운해할 수 있다.',
+        newterm: '눈앞의 반보다 더 먼 목표를 보고 있다. 적응보다 내 계획이 먼저다.',
+        career: '멀리 내다보는 포부가 크다. 긴 준비가 필요하지만 방향은 넓게 열려 있다.',
+        family: '가족보다 바깥의 계획에 마음이 가 있다. 집에서는 등을 돌린 것처럼 보일 수 있다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_4', suit: 'wands', rank: '4', nameKo: '완드 4',
@@ -60,9 +72,13 @@
         study: '목표한 성적을 이루고 칭찬받는다.',
         business: '성공을 축하받는 상황이다.',
         money: '조용히가 아니라 즐거운 일을 통해 돈이 들어온다.',
-        move: '함께 떠나면 더 좋고, 혼자서도 충분히 잘된다.'
+        move: '함께 떠나면 더 좋고, 혼자서도 충분히 잘된다.',
+        friend: '친구들과 함께 축하할 일이 생긴다. 무리 안에서 즐겁게 어울린다.',
+        newterm: '새 반에서 환영받고 금방 어울린다. 첫 행사나 모임이 즐겁다.',
+        career: '노력의 첫 결실을 맺어 주변에 알리게 된다.',
+        family: '집안에 축하할 일이 생긴다. 가족이 모여 기쁨을 나눈다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_5', suit: 'wands', rank: '5', nameKo: '완드 5',
@@ -75,9 +91,13 @@
         study: '경쟁 속에서 에너지를 많이 쓴다. 결과가 바로 따라오지는 않는다.',
         business: '결과를 방해하는 경쟁과 마찰이 생긴다.',
         money: '돈을 두고 다툼이나 방해가 생긴다.',
-        move: '이동을 두고 마찰이 생겨 진이 빠진다.'
+        move: '이동을 두고 마찰이 생겨 진이 빠진다.',
+        friend: '친구들 사이에서 의견 다툼이나 경쟁이 생긴다. 소모적인 말싸움에 지칠 수 있다.',
+        newterm: '자리와 역할을 두고 경쟁이 생긴다. 처음엔 시끌벅적하고 정신없다.',
+        career: '같은 길을 원하는 사람이 많아 경쟁이 치열하다. 지쳐도 버텨야 한다.',
+        family: '가족끼리 작은 다툼이 잦다. 서로 자기 몫을 주장한다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_6', suit: 'wands', rank: '6', nameKo: '완드 6',
@@ -90,9 +110,13 @@
         study: '주변을 이끌며 좋은 성적을 거둔다.',
         business: '주변 상황과 사람을 이끌어 나에게 유리하게 만든다.',
         money: '흐름을 주도해 이익을 낸다.',
-        move: '어떤 형태의 이동이든 가능하다.'
+        move: '어떤 형태의 이동이든 가능하다.',
+        friend: '친구들 사이에서 인정받고 앞장선다. 무리를 이끄는 역할을 맡는다.',
+        newterm: '새 반에서 금방 두각을 나타낸다. 반장이나 대표 역할이 어울린다.',
+        career: '앞서 나가며 인정받는다. 내가 고른 길에서 성과가 보인다.',
+        family: '가족이 나를 자랑스러워한다. 집안 일에서 내가 앞장선다.'
       },
-      inferred: ['job']
+      inferred: ['job', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_7', suit: 'wands', rank: '7', nameKo: '완드 7',
@@ -105,9 +129,13 @@
         study: '해결할 과제가 많아 당장 성과를 내기 어렵다.',
         business: '결과를 내려면 풀어야 할 문제가 한둘이 아니다.',
         money: '지켜야 할 것이 많아 새 기회에 손쓰기 어렵다.',
-        move: '발이 묶여 움직이기 어렵다.'
+        move: '발이 묶여 움직이기 어렵다.',
+        friend: '친구 사이의 일에 대처할 여유가 없다. 오해를 혼자 막아 내느라 지친다.',
+        newterm: '해야 할 일이 한꺼번에 몰려 정신이 없다. 내 자리를 지키느라 버틴다.',
+        career: '지금 붙잡은 목표를 지키려 애쓴다. 신경 쓸 일이 많아 새 길을 보기 어렵다.',
+        family: '가족의 요구나 간섭을 막아 내느라 지친다. 내 입장을 지키려 버틴다.'
       },
-      inferred: ['heart', 'job']
+      inferred: ['heart', 'job', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_8', suit: 'wands', rank: '8', nameKo: '완드 8',
@@ -120,9 +148,13 @@
         study: '막혀 있던 공부가 순서대로 풀려 나간다.',
         business: '일이 빠르게 진행되어 좋은 결과로 이어진다.',
         money: '돈의 흐름이 빨라지고 좋은 쪽으로 움직인다.',
-        move: '계획한 대로 빠르게 움직인다.'
+        move: '계획한 대로 빠르게 움직인다.',
+        friend: '연락과 만남이 빠르게 이어진다. 함께하는 활동으로 금방 가까워진다.',
+        newterm: '적응이 빠르게 진행된다. 일정과 소식이 차례로 이어져 바쁘다.',
+        career: '진로와 관련된 일이 빠르게 진행된다. 소식과 기회가 연달아 온다.',
+        family: '집안에 급히 처리할 일이나 이동이 생긴다. 일이 빠르게 진행된다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_9', suit: 'wands', rank: '9', nameKo: '완드 9',
@@ -135,9 +167,13 @@
         study: '지쳐서 집중이 흐려진다. 무리하기보다 컨디션을 회복해야 한다.',
         business: '당장 급한 일은 없지만 지쳐서 제대로 대응하지 못한다.',
         money: '새 기회가 와도 시야가 흐려 놓치기 쉽다.',
-        move: '움직이지 않는 것이 좋다. 욕심으로 떠나면 결과가 좋지 않다.'
+        move: '움직이지 않는 것이 좋다. 욕심으로 떠나면 결과가 좋지 않다.',
+        friend: '지쳐서 관계에 마음을 쓰기 어렵다. 다가오는 친구를 경계하기도 한다.',
+        newterm: '시작부터 피로가 쌓여 있다. 쉬면서 기운을 회복하는 것이 먼저다.',
+        career: '지쳐서 기회를 알아보지 못할 수 있다. 정비한 뒤 다시 나서야 한다.',
+        family: '가족 일에 지쳐 있다. 서로를 경계하며 한발 물러서 있다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_10', suit: 'wands', rank: '10', nameKo: '완드 10',
@@ -150,9 +186,13 @@
         study: '해야 할 공부가 쌓여 버겁다. 짐을 나눠 덜어 내야 한다.',
         business: '책임감으로 끌고 가지만 힘에 부친다.',
         money: '금전적 부담이 크다.',
-        move: '움직이지 않거나 못한다. 떠나도 그 자체가 또 다른 짐이 된다.'
+        move: '움직이지 않거나 못한다. 떠나도 그 자체가 또 다른 짐이 된다.',
+        friend: '친구 관계를 혼자 짊어진 듯 버겁다. 부탁을 다 들어주느라 힘들다.',
+        newterm: '맡은 일과 과제가 많아 버겁다. 처음부터 너무 많이 떠안지 않는 것이 좋다.',
+        career: '하고 싶은 일보다 해야 할 일에 눌려 있다. 짐을 나누거나 덜어야 길이 보인다.',
+        family: '집안의 책임을 내가 많이 떠안는다. 버겁지만 책임감으로 버틴다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_page', suit: 'wands', rank: 'page', nameKo: '완드 페이지',
@@ -165,9 +205,13 @@
         study: '하고 싶은 과목에는 불이 붙지만 꾸준함이 부족하다.',
         business: '아이디어는 많지만 아직 다듬어지지 않았다.',
         money: '들뜬 마음에 돈을 쓰기 쉽다.',
-        move: '가고 싶은 곳이 생기면 바로 떠나고 싶어 한다.'
+        move: '가고 싶은 곳이 생기면 바로 떠나고 싶어 한다.',
+        friend: '새 친구에게 금방 관심이 생긴다. 그 열정이 오래가는지는 지켜봐야 한다.',
+        newterm: '호기심이 많아 이것저것 해 보고 싶다. 새 소식과 활동에 들뜬다.',
+        career: '관심 가는 분야가 자주 바뀐다. 해 보며 맞는 것을 찾는 단계다.',
+        family: '가족에게 새 소식이 생긴다. 즉흥적인 계획이 오간다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_knight', suit: 'wands', rank: 'knight', nameKo: '완드 나이트',
@@ -180,9 +224,13 @@
         study: '몰아치기에는 강하지만 꼼꼼함이 아쉽다.',
         business: '밀어붙이는 힘으로 빠르게 진행한다. 세부 검토가 필요하다.',
         money: '충동적으로 돈을 쓰거나 투자하기 쉽다.',
-        move: '마음먹으면 바로 떠난다.'
+        move: '마음먹으면 바로 떠난다.',
+        friend: '빠르게 친해지고 거침없이 다가간다. 성급하면 금방 식을 수 있다.',
+        newterm: '망설임 없이 뛰어들어 빨리 어울린다. 서두르다 실수하지 않게 조심해야 한다.',
+        career: '마음먹은 길로 곧장 돌진한다. 추진력은 좋지만 준비를 놓치기 쉽다.',
+        family: '가족 앞에서 내 뜻대로 밀어붙인다. 급한 말이 다툼을 부를 수 있다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_queen', suit: 'wands', rank: 'queen', nameKo: '완드 퀸',
@@ -195,9 +243,13 @@
         study: '여러 활동을 함께 해내지만, 일을 너무 많이 벌이지 않도록 조심해야 한다.',
         business: '사람들을 이끌며 여러 일을 동시에 굴린다.',
         money: '씀씀이도 벌이도 크다.',
-        move: '여러 사람을 챙기며 함께 움직인다.'
+        move: '여러 사람을 챙기며 함께 움직인다.',
+        friend: '친구들을 살뜰히 챙기고 분위기를 이끈다. 오지랖이 부담이 되지 않게 조절해야 한다.',
+        newterm: '자신감 있게 나서서 반 분위기를 밝힌다. 여러 일을 동시에 챙기느라 바쁘다.',
+        career: '자신감과 능력으로 여러 일을 해낸다. 사람을 이끄는 일과 잘 맞는다.',
+        family: '가족을 두루 챙기는 역할을 맡는다. 활기를 주지만 혼자 다 하려 하면 지친다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'wands_king', suit: 'wands', rank: 'king', nameKo: '완드 킹',
@@ -210,9 +262,13 @@
         study: '스스로 계획을 세워 끝까지 밀고 나간다.',
         business: '비전을 행동으로 옮겨 결과를 만든다.',
         money: '스스로 쌓은 기반에서 돈이 들어온다.',
-        move: '필요하다고 판단하면 책임지고 움직인다.'
+        move: '필요하다고 판단하면 책임지고 움직인다.',
+        friend: '말보다 행동으로 친구를 챙긴다. 믿음직한 친구로 여겨진다.',
+        newterm: '경험을 살려 침착하게 자리를 잡는다. 반에서 듬직한 역할을 한다.',
+        career: '쌓은 경험을 바탕으로 책임 있게 길을 이끈다. 실천이 먼저다.',
+        family: '집안의 중심을 잡고 책임을 진다. 행동으로 가족을 이끈다.'
       },
-      inferred: ['love', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     }
   ];
 

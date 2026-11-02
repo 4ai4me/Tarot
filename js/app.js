@@ -18,7 +18,7 @@
   };
 
   var deck;
-  var state = { area: null, spread: R.SPREADS[0].key, hand: null };
+  var state = { area: null, spread: R.SPREADS[0].key, gender: 'none', hand: null };
 
   function showLoadError(message) {
     var box = $('load-error');
@@ -60,6 +60,17 @@
     R.AREAS.forEach(function (a) { areas.appendChild(chip('area', a.key, a.label, false)); });
     var spreads = $('spreads');
     R.SPREADS.forEach(function (s, i) { spreads.appendChild(chip('spread', s.key, s.label, i === 0)); });
+    var genders = $('genders');
+    R.GENDERS.forEach(function (g) { genders.appendChild(chip('gender', g.key, g.label, g.key === state.gender)); });
+
+    genders.addEventListener('change', function (e) {
+      state.gender = e.target.value;
+      if (state.hand) render(false);
+    });
+    $('age').addEventListener('input', function () {
+      checkAge();
+      if (state.hand) render(false);
+    });
 
     areas.addEventListener('change', function (e) {
       state.area = e.target.value;
@@ -78,21 +89,38 @@
     $('redraw').addEventListener('click', drawAndShow);
   }
 
+  /** 나이 칸을 검사해 오류 문구를 보이거나 지운다. 반환: R.parseAge 결과 */
+  function checkAge() {
+    var input = $('age');
+    var parsed = R.parseAge(input.value);
+    $('age-error').textContent = parsed.ok ? '' : parsed.message;
+    if (parsed.ok) input.removeAttribute('aria-invalid');
+    else input.setAttribute('aria-invalid', 'true');
+    return parsed;
+  }
+
+  /** 지금 입력된 나이·성별. 잘못된 나이는 빼고 쓴다 (오류 문구는 checkAge가 보여 준다). */
+  function currentProfile() {
+    var parsed = R.parseAge($('age').value);
+    return { age: parsed.ok ? parsed.value : null, gender: state.gender };
+  }
+
   function drawAndShow() {
     if (!state.area) {
       $('hint').textContent = '볼 영역을 먼저 고르세요.';
       return;
     }
+    if (!checkAge().ok) {
+      $('hint').textContent = '나이 칸을 고치거나 비워 주세요.';
+      $('age').focus();
+      return;
+    }
+    $('hint').textContent = '';
     state.hand = R.draw(deck, 3);
     render(true);
     var result = $('result');
     result.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
     $('result-title').focus({ preventScroll: true });
-  }
-
-  function spreadByKey(key) {
-    for (var i = 0; i < R.SPREADS.length; i++) if (R.SPREADS[i].key === key) return R.SPREADS[i];
-    return R.SPREADS[0];
   }
 
   function emblem(suit) {
@@ -204,15 +232,36 @@
     return art;
   }
 
+  function summaryElement(hand) {
+    var frag = document.createDocumentFragment();
+    var s;
+    try {
+      s = R.summarize(hand, state.area, state.spread, currentProfile());
+    } catch (err) {
+      console.error('[타로] 총평을 만들지 못했습니다:', err);
+      frag.appendChild(el('p', 'summary-error', '총평을 만들지 못했습니다. 위의 카드별 해석을 참고해 주세요.'));
+      return frag;
+    }
+    frag.appendChild(el('p', 'summary-opening', s.opening));
+    frag.appendChild(el('p', 'summary-flow', s.flow.join(' ')));
+    var ending = el('div', 'summary-ending');
+    ending.appendChild(el('p', 'summary-lead', s.endingLead));
+    ending.appendChild(el('p', 'summary-text', s.endingText));
+    frag.appendChild(ending);
+    s.notes.forEach(function (n) { frag.appendChild(el('p', 'summary-note', n)); });
+    return frag;
+  }
+
   function render(animate) {
     var hand = state.hand;
-    var spread = spreadByKey(state.spread);
+    var spread = R.spreadByKey(state.spread);
     var question = $('question').value.trim();
     var areaLabel = R.areaLabel(state.area);
+    var who = R.profileText(currentProfile());
 
     $('result-title').textContent = question ? question : areaLabel + '에 대한 세 장';
     $('result-title').setAttribute('tabindex', '-1');
-    $('result-title').dataset.area = areaLabel;
+    $('result-title').dataset.area = who ? who + ' · ' + areaLabel : areaLabel;
 
     var table = $('table');
     table.textContent = '';
@@ -234,6 +283,10 @@
     var areaNote = el('p', 'area-note', areaLabel + ' 영역으로 읽은 해석');
     readings.appendChild(areaNote);
     hand.forEach(function (card, i) { readings.appendChild(readingElement(card, spread.positions[i])); });
+
+    var summaryBody = $('summary-body');
+    summaryBody.textContent = '';
+    summaryBody.appendChild(summaryElement(hand));
 
     $('result').hidden = false;
   }

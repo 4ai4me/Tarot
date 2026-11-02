@@ -15,9 +15,13 @@
         study: '준비한 만큼 결과가 나오는 출발점이다.',
         business: '완벽하게 준비된 제안과 기회가 들어온다.',
         money: '기회에 그치지 않고 실제 돈이 손에 들어온다.',
-        move: '준비해 둔 이동이 실제로 시작된다.'
+        move: '준비해 둔 이동이 실제로 시작된다.',
+        friend: '믿을 만한 친구가 생긴다. 실속 있고 든든한 관계의 시작이다.',
+        newterm: '준비한 만큼 안정적으로 출발한다. 현실적인 기회가 손에 들어온다.',
+        career: '진로에 필요한 확실한 기회가 생긴다. 준비해 온 것이 첫 결과로 이어진다.',
+        family: '집안에 현실적인 좋은 일이 생긴다. 기반이 안정된다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_2', suit: 'pentacles', rank: '2', nameKo: '펜타클 2',
@@ -30,9 +34,13 @@
         study: '해야 할 일이 많아 겨우겨우 맞춰 간다.',
         business: '유지하기 어렵게 만드는 방해가 꾸준히 생긴다. 밤낮없이 버텨야 한다.',
         money: '돌려막기를 해야 할 만큼 빠듯하다.',
-        move: '확실히 이득이 되면 애써 움직이고, 아니면 움직이지 않는다.'
+        move: '확실히 이득이 되면 애써 움직이고, 아니면 움직이지 않는다.',
+        friend: '여러 관계를 동시에 챙기느라 버겁다. 이것저것 저울질하며 지켜보는 중이다.',
+        newterm: '공부와 생활을 동시에 맞추느라 바쁘다. 버겁지만 어떻게든 유지한다.',
+        career: '여러 선택지를 동시에 저울질한다. 결정이 늦어질 수 있다.',
+        family: '집안 사정과 내 일을 동시에 챙기느라 버겁다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_3', suit: 'pentacles', rank: '3', nameKo: '펜타클 3',
@@ -45,9 +53,13 @@
         study: '함께 공부하거나 도움을 주고받으면 실력이 탄탄해진다.',
         business: '경험 있는 사람들이 모여 함께 기반을 만드는 단계다.',
         money: '돈이 들어올 기반을 다지고 있다.',
-        move: '이동을 위한 실제 준비가 시작됐다. 당장 떠나는 것은 아니다.'
+        move: '이동을 위한 실제 준비가 시작됐다. 당장 떠나는 것은 아니다.',
+        friend: '함께 무언가를 하며 가까워진다. 딱 적당한 거리의 관계다.',
+        newterm: '모둠 활동이나 역할 분담 속에서 자연스럽게 자리 잡는다.',
+        career: '실력을 인정받으며 기반을 쌓는다. 여럿이 함께 일하는 분야와 잘 맞는다.',
+        family: '가족이 각자 역할을 나누어 집안을 꾸린다. 협력이 잘 된다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_4', suit: 'pentacles', rank: '4', nameKo: '펜타클 4',
@@ -60,9 +72,13 @@
         study: '익숙한 방식만 고집해 성적이 제자리에 머문다.',
         business: '안정적이지만 넓히거나 발전시키기 어렵다.',
         money: '새로 들어오는 돈이 없다. 기회가 와도 손해 보기 싫어 잡지 못한다.',
-        move: '지금 가진 것을 지키느라 움직이지 않는다.'
+        move: '지금 가진 것을 지키느라 움직이지 않는다.',
+        friend: '지금 친구를 놓치기 싫어 붙잡는다. 다른 친구와 어울리는 것을 꺼린다.',
+        newterm: '익숙한 것을 고집해 새 환경을 받아들이기 어렵다.',
+        career: '안정된 길만 붙잡고 새 도전을 망설인다.',
+        family: '가진 것을 지키려 서로 아끼고 조심한다. 변화를 꺼리는 분위기다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_5', suit: 'pentacles', rank: '5', nameKo: '펜타클 5',
@@ -75,9 +91,13 @@
         study: '여건이 어려워 성적이 오르기 힘들다.',
         business: '함께 일하려면 손해를 봐야 하는 상황이 생긴다.',
         money: '들어올 줄 알았던 돈이 오지 않고 시기도 불확실해진다.',
-        move: '이동 과정이 불편하고 지금보다 못한 곳으로 갈 수 있다.'
+        move: '이동 과정이 불편하고 지금보다 못한 곳으로 갈 수 있다.',
+        friend: '함께 있어도 불편하고 소외감을 느낀다. 도움을 청하면 손 내밀 사람이 있다.',
+        newterm: '새 반에서 소외감을 느낄 수 있다. 먼저 도움을 청하는 용기가 필요하다.',
+        career: '조건이 부족해 원하는 길이 멀게 느껴진다. 도움받을 곳을 찾아야 한다.',
+        family: '집안 사정이나 분위기가 어렵다. 함께 있어도 서로 힘들다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_6', suit: 'pentacles', rank: '6', nameKo: '펜타클 6',
@@ -90,9 +110,13 @@
         study: '가르치거나 도움을 받으며 함께 성장한다.',
         business: '주변에 베풀거나 도움을 받을 일이 생긴다.',
         money: '베풀고 나누는 데 돈이 나간다. 도움을 받을 수도 있다.',
-        move: '예상보다 지출이 많은 이동이 된다.'
+        move: '예상보다 지출이 많은 이동이 된다.',
+        friend: '친구에게 도움을 주거나 받는다. 주고받는 균형이 맞는지 살펴야 한다.',
+        newterm: '친절을 베풀거나 도움을 받으며 관계를 맺는다.',
+        career: '진로를 도와줄 사람이 생긴다. 조건을 잘 따져 봐야 한다.',
+        family: '가족 사이에 도움이 오간다. 누가 더 주고받는지로 서운함이 생기지 않게 해야 한다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_7', suit: 'pentacles', rank: '7', nameKo: '펜타클 7',
@@ -105,9 +129,13 @@
         study: '성적은 나왔지만 아쉽다. 공부 방법을 돌아보면 더 오른다.',
         business: '이미 결실은 있다. 더 나은 방향을 찾아 고심하는 중이다.',
         money: '들어온 것은 있지만 더 늘릴 방법을 고민한다.',
-        move: '고민하거나 집중할 일이 있어 움직이지 않는다.'
+        move: '고민하거나 집중할 일이 있어 움직이지 않는다.',
+        friend: '지금 관계가 아직 아쉽다. 더 가까워지려면 노력이 필요하다.',
+        newterm: '생각만큼 잘 적응하지 못해 아쉽다. 무엇을 바꿀지 돌아보는 시기다.',
+        career: '지금까지의 노력이 만족스럽지 않다. 방향을 다시 점검한다.',
+        family: '가족을 위해 애쓴 만큼 돌아오지 않아 아쉽다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_8', suit: 'pentacles', rank: '8', nameKo: '펜타클 8',
@@ -120,9 +148,13 @@
         study: '꾸준히 반복하는 공부가 실력을 만든다.',
         business: '지금과 같은 성과가 꾸준히 이어진다. 새로운 도전은 하지 않는다.',
         money: '같은 수입이 꾸준히 들어온다.',
-        move: '다른 데 눈 돌릴 틈이 없어 움직이지 못한다.'
+        move: '다른 데 눈 돌릴 틈이 없어 움직이지 못한다.',
+        friend: '공부나 일에 몰두해 친구에게 신경 쓸 겨를이 없다.',
+        newterm: '성실하게 공부와 생활 습관을 다지며 적응한다.',
+        career: '꾸준한 연습과 반복으로 실력을 쌓는다. 기술이나 전문성이 필요한 길과 잘 맞는다.',
+        family: '각자 일에 몰두해 대화가 적다. 성실하게 제 몫을 한다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_9', suit: 'pentacles', rank: '9', nameKo: '펜타클 9',
@@ -135,9 +167,13 @@
         study: '꾸준히 공들인 만큼 만족스러운 성적이 나온다.',
         business: '사업 기반이 생기고 그동안의 노력에 대한 보상을 받는다.',
         money: '그동안 공들인 만큼 재물이 차곡차곡 쌓인다.',
-        move: '원하는 곳 어디든 움직일 수 있다. 굳이 움직이지 않아도 좋은 상황이다.'
+        move: '원하는 곳 어디든 움직일 수 있다. 굳이 움직이지 않아도 좋은 상황이다.',
+        friend: '혼자서도 충분해 새 친구를 찾지 않는다. 친구가 서운해할 수 있다.',
+        newterm: '스스로 공들여 만든 생활이 안정적이다. 혼자서도 잘 지낸다.',
+        career: '스스로 쌓아 온 능력으로 원하는 자리를 얻는다. 자립하는 길이 어울린다.',
+        family: '집에서 여유롭고 편안하다. 가족에게 기대지 않고 스스로 해낸다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_10', suit: 'pentacles', rank: '10', nameKo: '펜타클 10',
@@ -150,9 +186,13 @@
         study: '여건은 넉넉하지만 결국 스스로의 노력이 결과를 가른다.',
         business: '사업이 커지고 실제 소득이 늘어난다.',
         money: '수입이 늘어난다. 가족이나 윗사람의 도움을 받기도 한다.',
-        move: '비용 부담이 나에게 몰리는 이동일 수 있다. 가족의 도움으로 옮기기도 한다.'
+        move: '비용 부담이 나에게 몰리는 이동일 수 있다. 가족의 도움으로 옮기기도 한다.',
+        friend: '오래된 친구 무리 안에서 안정적이다. 그러나 속마음까지 전해지지는 않는다.',
+        newterm: '큰 학교나 넓은 무리에 속하게 된다. 아는 사람이나 인맥이 도움이 된다.',
+        career: '집안이나 주변의 도움이 진로에 작용한다. 규모 있고 안정적인 길과 연결된다.',
+        family: '집안이 안정되어 있지만 서로의 마음은 잘 전해지지 않는다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_page', suit: 'pentacles', rank: 'page', nameKo: '펜타클 페이지',
@@ -165,9 +205,13 @@
         study: '성실하게 공부하며 실력을 쌓아 간다.',
         business: '작게 시작해 배우며 키워 간다.',
         money: '아끼며 미래를 위해 모은다.',
-        move: '신중하게 알아보고 움직인다.'
+        move: '신중하게 알아보고 움직인다.',
+        friend: '조심스럽게 천천히 다가간다. 친구들의 시선을 신경 쓴다.',
+        newterm: '차근차근 준비하며 조심스럽게 적응한다.',
+        career: '배우며 준비하는 단계다. 차근차근 쌓으면 기회가 온다.',
+        family: '가족의 기대를 의식하며 성실하게 지낸다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_knight', suit: 'pentacles', rank: 'knight', nameKo: '펜타클 나이트',
@@ -180,9 +224,13 @@
         study: '진도는 느리지만 꾸준히 밀고 나간다.',
         business: '위험을 피하며 지금을 지킨다. 발전은 더디다.',
         money: '안전하게 지키는 데 집중한다.',
-        move: '확실해질 때까지 움직이지 않는다.'
+        move: '확실해질 때까지 움직이지 않는다.',
+        friend: '신중하게 사람을 사귄다. 천천히 친해지지만 오래 간다.',
+        newterm: '서두르지 않고 천천히 적응한다. 처음엔 소극적으로 보일 수 있다.',
+        career: '확실한 길만 골라 신중하게 움직인다. 진행은 느리지만 꾸준하다.',
+        family: '집안 일을 묵묵히 꾸준하게 맡는다. 변화보다 지금을 지키려 한다.'
       },
-      inferred: ['job', 'study', 'business', 'money', 'move']
+      inferred: ['job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_queen', suit: 'pentacles', rank: 'queen', nameKo: '펜타클 퀸',
@@ -195,9 +243,13 @@
         study: '공부 환경을 잘 갖추고 꾸준히 관리한다.',
         business: '가치 있어 보이는 일에 적극적으로 나선다.',
         money: '살림을 알뜰하고 넉넉하게 꾸린다.',
-        move: '편안하고 품위 있는 이동을 택한다.'
+        move: '편안하고 품위 있는 이동을 택한다.',
+        friend: '친구를 현실적으로 잘 챙겨 준다. 믿고 기댈 수 있는 사이다.',
+        newterm: '차분하고 믿음직한 인상으로 편안하게 자리 잡는다.',
+        career: '사람을 돌보며 실속을 챙기는 길과 잘 맞는다. 안정적인 방향이 좋다.',
+        family: '가족을 따뜻하고 실속 있게 보살핀다. 집안이 안정적이다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'pentacles_king', suit: 'pentacles', rank: 'king', nameKo: '펜타클 킹',
@@ -210,9 +262,13 @@
         study: '효율적인 방법으로 확실한 결과를 낸다.',
         business: '효율을 따져 확실한 성과를 낸다.',
         money: '재물운이 탄탄하다.',
-        move: '득실을 따져 이득이 확실할 때 움직인다.'
+        move: '득실을 따져 이득이 확실할 때 움직인다.',
+        friend: '든든하고 믿음직한 친구다. 감정 표현보다 현실적인 도움을 준다.',
+        newterm: '안정된 기반 위에서 여유 있게 시작한다.',
+        career: '오랜 노력 끝에 탄탄한 성과를 이룬다. 현실적이고 안정된 길이 어울린다.',
+        family: '집안의 기반이 탄탄하다. 현실적인 면에서 가족을 든든히 받친다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     }
   ];
 

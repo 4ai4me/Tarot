@@ -15,9 +15,13 @@
         study: '목표가 분명해진다. 결심을 지키면 성적이 오른다.',
         business: '결정을 막는 방해가 있지만 이겨 내고 진행하겠다는 입장이다.',
         money: '걸림돌을 감수하고서라도 밀고 나간다.',
-        move: '순탄하지 않아 결단이 필요하다. 손해를 감수해야 움직일 수 있다.'
+        move: '순탄하지 않아 결단이 필요하다. 손해를 감수해야 움직일 수 있다.',
+        friend: '관계에 대해 분명한 결정을 내린다. 할 말은 하고 넘어가야 한다.',
+        newterm: '마음을 굳게 먹고 새 학기를 시작한다. 첫 목표를 분명히 세운다.',
+        career: '하고 싶은 길을 분명히 정한다. 어려워도 밀고 나갈 의지가 있다.',
+        family: '가족 앞에서 내 뜻을 분명히 밝힌다. 감수해야 할 것이 있어도 결정을 내린다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_2', suit: 'swords', rank: '2', nameKo: '소드 2',
@@ -30,9 +34,13 @@
         study: '무엇부터 할지 정하지 못해 시간을 흘려보낸다.',
         business: '나아가지도 물러서지도 못한다.',
         money: '새로 들어오는 돈이 없다.',
-        move: '사소한 고민 때문에 결국 떠나지 못할 수 있다.'
+        move: '사소한 고민 때문에 결국 떠나지 못할 수 있다.',
+        friend: '친구 사이에서 어느 편도 들지 못하고 망설인다. 결정을 미루면 관계가 굳어진다.',
+        newterm: '누구와 어울릴지, 무엇을 할지 정하지 못하고 망설인다.',
+        career: '두 길 사이에서 결정을 미룬다. 정보를 모아 기준을 세워야 한다.',
+        family: '가족 사이에서 누구 편도 들기 어렵다. 결정을 미루느라 답답하다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_3', suit: 'swords', rank: '3', nameKo: '소드 3',
@@ -45,9 +53,13 @@
         study: '결과에 마음이 상한다. 위축되지 않는 것이 중요하다.',
         business: '크지는 않아도 잔잔한 방해가 계속 이어진다.',
         money: '돈이 조금씩 새어 나간다.',
-        move: '의견이 맞지 않아 떠나고 싶지 않다. 혼자라면 용기가 나지 않는다.'
+        move: '의견이 맞지 않아 떠나고 싶지 않다. 혼자라면 용기가 나지 않는다.',
+        friend: '친구의 말이나 행동에 상처를 받는다. 마음을 추스를 시간이 필요하다.',
+        newterm: '새 반에서 서운하거나 아픈 일을 겪는다. 상처에 갇히지 않는 것이 중요하다.',
+        career: '원하던 길에서 아픈 결과를 받는다. 추스르고 다시 준비해야 한다.',
+        family: '가족의 말에 마음이 아프다. 상처가 아물 시간이 필요하다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_4', suit: 'swords', rank: '4', nameKo: '소드 4',
@@ -60,9 +72,13 @@
         study: '의욕이 떨어져 공부가 멈춰 있다. 충분히 쉰 뒤 다시 시작하자.',
         business: '겉으로 보이는 것에 비해 실속이 쌓이지 않는다.',
         money: '보이는 것보다 남는 돈이 없다.',
-        move: '시기나 목적지가 정해지지 않아 실제로는 진행되지 않는다.'
+        move: '시기나 목적지가 정해지지 않아 실제로는 진행되지 않는다.',
+        friend: '관계에서 잠시 물러나 쉬고 싶다. 겉으로는 괜찮아도 속은 편치 않다.',
+        newterm: '적응에 지쳐 혼자 쉬고 싶어진다. 무리하지 말고 기운을 회복하는 것이 좋다.',
+        career: '고민에 지쳐 잠시 손을 놓고 싶다. 쉬면서 생각을 정리하는 시기다.',
+        family: '가족과 거리를 두고 쉬고 싶다. 말은 없지만 속앓이를 하고 있다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_5', suit: 'swords', rank: '5', nameKo: '소드 5',
@@ -75,9 +91,13 @@
         study: '점수는 얻어도 그 과정에서 무리한 것이 남는다.',
         business: '상대와 부딪쳐 관계가 깨지는 쪽으로 흐른다.',
         money: '돈 문제로 사람과 틀어질 수 있다.',
-        move: '함께 정했던 내용이 깨진다.'
+        move: '함께 정했던 내용이 깨진다.',
+        friend: '말다툼에서 이겨도 친구를 잃을 수 있다. 생각 차이가 분명히 드러난다.',
+        newterm: '자리나 역할을 두고 갈등이 생긴다. 이기는 것보다 관계를 지키는 것이 중요하다.',
+        career: '경쟁에서 앞서도 개운하지 않다. 남과 부딪치는 방식은 조심해야 한다.',
+        family: '가족과 언쟁이 생긴다. 이겨도 서로 마음이 상한다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_6', suit: 'swords', rank: '6', nameKo: '소드 6',
@@ -90,9 +110,13 @@
         study: '어려운 시기를 지나 조금씩 나아진다.',
         business: '걱정에 비해 나아질 방향이 보인다.',
         money: '큰 타격 없이 조금씩 나아진다.',
-        move: '완벽하지 않아도 지금보다 나은 곳이라 떠나게 된다.'
+        move: '완벽하지 않아도 지금보다 나은 곳이라 떠나게 된다.',
+        friend: '불편한 관계에서 벗어나 더 편한 친구들 쪽으로 옮겨 간다.',
+        newterm: '지난 학기의 어려움을 뒤로하고 나아진다. 조금 불편해도 차츰 편해진다.',
+        career: '지금보다 나은 방향으로 옮겨 간다. 참고 견딘 만큼 회복된다.',
+        family: '힘든 시기를 지나 집안이 조금씩 나아진다. 이사나 환경 변화가 있을 수 있다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_7', suit: 'swords', rank: '7', nameKo: '소드 7',
@@ -105,9 +129,13 @@
         study: '단기 시험은 요령으로 넘길 수 있지만 길게 보면 실력이 필요하다.',
         business: '좋은 아이디어가 떠오르고 빠르게 좋은 일이 생긴다. 단기에는 좋지만 장기에는 조심해야 한다.',
         money: '단기적으로는 이득을 본다. 길게 보는 일이라면 조심해야 한다.',
-        move: '나에게 유리한 이동이 가능하다. 중요한 이동이라면 더 신중하게.'
+        move: '나에게 유리한 이동이 가능하다. 중요한 이동이라면 더 신중하게.',
+        friend: '눈치와 요령으로 관계를 유리하게 이끈다. 오래 가려면 솔직함이 필요하다.',
+        newterm: '요령껏 빠르게 적응한다. 꾀를 부리다 신뢰를 잃지 않게 조심해야 한다.',
+        career: '빠르게 기회를 잡는 요령이 있다. 길게 갈 길이라면 더 신중해야 한다.',
+        family: '가족 몰래 하는 일이 생긴다. 들키기 전에 솔직해지는 것이 낫다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_8', suit: 'swords', rank: '8', nameKo: '소드 8',
@@ -120,9 +148,13 @@
         study: '한 가지 방식만 고집해 막혀 있다.',
         business: '내 판단만 고집하다 보니 사업 흐름에 변화가 생기지 않는다.',
         money: '돈의 흐름이 막혀 들어오지도 나가지도 않는다.',
-        move: '스스로 만든 걱정과 핑계에 묶여 움직이지 못한다.'
+        move: '스스로 만든 걱정과 핑계에 묶여 움직이지 못한다.',
+        friend: '혼자 생각에 갇혀 친구를 오해한다. 직접 물어보면 풀린다.',
+        newterm: '걱정과 생각에 갇혀 먼저 움직이지 못한다. 생각보다 상황은 열려 있다.',
+        career: '스스로 선택지를 좁혀 움직이지 못한다. 시야를 넓혀야 한다.',
+        family: '가족의 기대에 갇힌 듯 답답하다. 스스로 만든 틀은 아닌지 살펴야 한다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_9', suit: 'swords', rank: '9', nameKo: '소드 9',
@@ -135,9 +167,13 @@
         study: '시험 불안이 커서 집중이 흔들린다.',
         business: '모든 것을 부정적으로 받아들여 해결책을 찾지 못한다.',
         money: '걱정은 많은데 문제가 어디서 생겼는지 알 수 없어 방향을 잃는다.',
-        move: '고민이 너무 커서 움직이지 못한다.'
+        move: '고민이 너무 커서 움직이지 못한다.',
+        friend: '친구 관계에 대한 걱정으로 잠을 설친다. 나쁜 쪽으로 짐작하지 않는 것이 좋다.',
+        newterm: '새 학기 걱정이 커서 마음이 무겁다. 실제보다 걱정이 크다.',
+        career: '진로 걱정이 커서 아무것도 손에 잡히지 않는다. 걱정을 구체적인 할 일로 바꿔야 한다.',
+        family: '가족 걱정에 마음이 무겁다. 혼자 끌어안지 말고 털어놓는 것이 좋다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_10', suit: 'swords', rank: '10', nameKo: '소드 10',
@@ -150,9 +186,13 @@
         study: '크게 무너진 결과가 나온다. 바닥을 딛고 다시 시작해야 한다.',
         business: '외부의 타격을 버티지 못하고 손을 놓는다.',
         money: '현실적인 이득을 놓치게 된다.',
-        move: '움직이지 못할 분명한 사정이 생긴다.'
+        move: '움직이지 못할 분명한 사정이 생긴다.',
+        friend: '한 관계가 분명히 끝난다. 상처가 크지만 이제 다시 시작할 수 있다.',
+        newterm: '바닥을 친 듯 힘든 출발이다. 더 내려갈 곳은 없으니 다음부터는 나아진다.',
+        career: '지금의 계획은 여기서 끝이 난다. 다음 길을 준비하는 것이 낫다.',
+        family: '가족 사이의 갈등이 한계에 다다른다. 이제는 정리하고 새로 시작해야 한다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_page', suit: 'swords', rank: 'page', nameKo: '소드 페이지',
@@ -165,9 +205,13 @@
         study: '눈치가 빠르고 정보에 밝다. 꼼꼼함을 더하면 좋다.',
         business: '정보를 빠르게 파악하지만 부정적인 해석에 빠지기 쉽다.',
         money: '지출을 경계하며 따져 본다.',
-        move: '이동을 앞두고 이것저것 따지며 망설인다.'
+        move: '이동을 앞두고 이것저것 따지며 망설인다.',
+        friend: '친구를 경계하며 살핀다. 섣부른 말이 오해를 부를 수 있다.',
+        newterm: '눈치 빠르게 분위기를 살핀다. 첫인상만으로 판단하지 않는 것이 좋다.',
+        career: '정보를 빠르게 모으며 관심 분야를 살핀다. 성급히 결론 내리지 말아야 한다.',
+        family: '가족의 말에 예민하게 반응한다. 말투에 날이 서지 않게 조심해야 한다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_knight', suit: 'swords', rank: 'knight', nameKo: '소드 나이트',
@@ -180,9 +224,13 @@
         study: '빠르게 풀지만 실수가 나오기 쉽다.',
         business: '빠르게 밀어붙이지만 마찰이 생기기 쉽다.',
         money: '성급한 결정으로 손해를 볼 수 있다.',
-        move: '갑작스럽게 결정하고 바로 떠난다.'
+        move: '갑작스럽게 결정하고 바로 떠난다.',
+        friend: '직설적인 말이 친구에게 상처가 될 수 있다. 빠른 판단보다 한 번 더 생각해야 한다.',
+        newterm: '거침없이 나서지만 말이 앞서 부딪치기 쉽다.',
+        career: '결정을 빠르게 내리고 밀고 나간다. 성급함만 조심하면 된다.',
+        family: '가족과 날카롭게 말이 오간다. 급한 말은 한 번 참는 것이 좋다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_queen', suit: 'swords', rank: 'queen', nameKo: '소드 퀸',
@@ -195,9 +243,13 @@
         study: '원칙대로 계획을 지켜 안정적인 성적을 낸다.',
         business: '냉철하게 판단해 손해를 피한다.',
         money: '원칙을 정해 빈틈없이 관리한다.',
-        move: '안전하다고 판단될 때만 움직인다.'
+        move: '안전하다고 판단될 때만 움직인다.',
+        friend: '원칙대로 선을 긋는다. 생각 차이가 있으면 마음이 쉽게 식는다.',
+        newterm: '분명한 기준으로 사람을 가려 사귄다. 처음엔 차갑게 보일 수 있다.',
+        career: '분명한 기준과 판단력으로 길을 정한다. 논리적인 일과 잘 맞는다.',
+        family: '가족에게 할 말을 분명히 한다. 옳은 말이어도 차갑게 들리지 않게 조심해야 한다.'
       },
-      inferred: ['job', 'study', 'business', 'money', 'move']
+      inferred: ['job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'swords_king', suit: 'swords', rank: 'king', nameKo: '소드 킹',
@@ -210,9 +262,13 @@
         study: '논리적으로 정리하는 힘이 강해 성적이 좋다.',
         business: '원칙대로 공정하게 결정해 결과를 이끈다.',
         money: '냉정하게 판단해 관리한다.',
-        move: '필요성을 따져 합리적으로 결정한다.'
+        move: '필요성을 따져 합리적으로 결정한다.',
+        friend: '이성적으로 관계를 판단한다. 따뜻함보다 옳고 그름을 앞세운다.',
+        newterm: '냉정하게 상황을 판단하며 안정적으로 자리 잡는다.',
+        career: '논리와 판단력으로 방향을 정한다. 전문적인 판단이 필요한 일과 잘 맞는다.',
+        family: '집안 문제를 논리적으로 정리한다. 다만 가족은 공감을 원할 수 있다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     }
   ];
 
