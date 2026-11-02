@@ -15,9 +15,13 @@
         study: '공부에 마음이 붙는다. 하고 싶은 마음이 성적을 끌어올린다.',
         business: '이루고 싶은 마음이 크게 일어난다.',
         money: '갖고 싶은 마음이 커진다. 그럴 만한 계기가 생긴다.',
-        move: '떠나고 싶은 마음이 차오를 만한 일이 생긴다.'
+        move: '떠나고 싶은 마음이 차오를 만한 일이 생긴다.',
+        friend: '친구에 대한 좋은 마음이 크게 차오른다. 마음을 나눌 친구가 생긴다.',
+        newterm: '새 반에 대한 설렘이 크다. 마음이 열려 있어 좋은 인연이 생긴다.',
+        career: '정말 하고 싶은 일이 마음에 생긴다. 그 마음이 원동력이 된다.',
+        family: '가족에게 진심이 전해진다. 따뜻한 감정이 오가는 일이 생긴다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_2', suit: 'cups', rank: '2', nameKo: '컵 2',
@@ -30,9 +34,13 @@
         study: '함께 공부할 짝이 생기면 성적이 오른다.',
         business: '마음 맞는 파트너를 만나 좋은 계약을 맺는다.',
         money: '함께 계획하고 벌어들일 파트너가 생긴다.',
-        move: '함께 떠나거나 서로 도움을 주고받으며 움직인다.'
+        move: '함께 떠나거나 서로 도움을 주고받으며 움직인다.',
+        friend: '마음이 맞는 친구와 가까워진다. 진심으로 이야기하면 다툰 친구와도 화해할 수 있다.',
+        newterm: '마음 맞는 짝을 만나 서로 의지하며 적응한다.',
+        career: '함께할 사람이나 마음이 맞는 분야를 만난다. 나와 잘 맞는 길이 보인다.',
+        family: '가족 중 한 사람과 마음이 잘 통한다. 서로 맞춰 가려는 마음이 있다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_3', suit: 'cups', rank: '3', nameKo: '컵 3',
@@ -45,9 +53,13 @@
         study: '친구들과 어울리는 즐거움이 크다. 공부와 놀이의 균형이 필요하다.',
         business: '즐겁게 의견을 나누고 가볍게 계획을 세운다. 바로 실행으로 이어지지는 않는다.',
         money: '함께 이야기 나누며 계획을 세우는 단계다. 결과는 아직이다.',
-        move: '함께 떠날 이야기는 즐겁게 오가지만 실제로 움직이는 건 나중이다.'
+        move: '함께 떠날 이야기는 즐겁게 오가지만 실제로 움직이는 건 나중이다.',
+        friend: '친구들과 즐겁게 어울린다. 다툰 일도 상대는 가볍게 넘기고 있을 수 있다.',
+        newterm: '무리를 이뤄 즐겁게 어울린다. 노는 재미와 공부의 균형만 챙기면 된다.',
+        career: '친구들과 즐겁게 꿈을 이야기한다. 아직 구체적인 실행으로 이어지지는 않는다.',
+        family: '가족과 함께 웃을 일이 생긴다. 가벼운 모임이나 나들이가 즐겁다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_4', suit: 'cups', rank: '4', nameKo: '컵 4',
@@ -60,9 +72,13 @@
         study: '공부가 지루하게 느껴진다. 의욕을 다시 찾아야 한다.',
         business: '끌리지 않는 제안이 들어온다. 무심코 좋은 기회를 놓칠 수 있다.',
         money: '재물 제안에 시큰둥하다가 기회를 놓칠 수 있다.',
-        move: '다른 데 마음이 쓰여 떠나고 싶지 않다. 옮길 만한 곳도 찾지 못한다.'
+        move: '다른 데 마음이 쓰여 떠나고 싶지 않다. 옮길 만한 곳도 찾지 못한다.',
+        friend: '관계에 흥미가 떨어져 시큰둥하다. 이대로 두면 사이가 소원해진다.',
+        newterm: '새 반이 영 마음에 들지 않는다. 다가오는 친구를 놓칠 수 있다.',
+        career: '들어오는 선택지가 마음에 차지 않는다. 좋은 기회를 흘려보내지 않게 살펴야 한다.',
+        family: '가족의 말에 시큰둥하다. 마음이 다른 데 가 있다.'
       },
-      inferred: ['heart', 'job', 'study']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_5', suit: 'cups', rank: '5', nameKo: '컵 5',
@@ -75,9 +91,13 @@
         study: '결과에 실망해 의욕이 꺾인다. 아직 남은 것을 돌아봐야 한다.',
         business: '기대했던 일이 틀어져 실망한다. 그 실망 때문에 다른 기회까지 놓친다.',
         money: '예상했던 돈이 들어오지 않아 실망한다.',
-        move: '이동에서 실망하거나 상처받을 일이 생긴다. 약속이 깨질 수 있다.'
+        move: '이동에서 실망하거나 상처받을 일이 생긴다. 약속이 깨질 수 있다.',
+        friend: '친구에게 실망했거나 지난 관계에 미련이 남았다. 아직 곁에 남은 친구를 놓치지 말아야 한다.',
+        newterm: '예전 반이나 친구를 그리워하며 실망한다. 지금 곁의 좋은 점을 보지 못하고 있다.',
+        career: '기대했던 길이 막혀 실망한다. 남아 있는 다른 가능성을 살펴야 한다.',
+        family: '가족에게 서운함이 남아 있다. 지난 일에 대한 아쉬움이 크다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_6', suit: 'cups', rank: '6', nameKo: '컵 6',
@@ -90,9 +110,13 @@
         study: '성적이 좋았던 때를 떠올리며 기초를 다시 다지면 도움이 된다.',
         business: '지금도 나쁘지 않지만 예전이 더 좋았다고 느낀다.',
         money: '큰 변화는 없고, 예전 같은 넉넉함을 그리워한다.',
-        move: '가까운 사람들과 소소하고 즐겁게 다녀올 수 있다. 활동적인 이동은 아니다.'
+        move: '가까운 사람들과 소소하고 즐겁게 다녀올 수 있다. 활동적인 이동은 아니다.',
+        friend: '옛 친구가 떠오르거나 다시 연락이 닿는다. 편하고 따뜻한 사이다.',
+        newterm: '예전 반을 떠올리며 지금과 비교한다. 아는 친구가 있으면 적응이 쉽다.',
+        career: '어릴 때 좋아하던 일에서 진로의 실마리를 찾는다.',
+        family: '가족과 지난 추억을 나누며 정이 깊어진다. 편안하고 소박한 분위기다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_7', suit: 'cups', rank: '7', nameKo: '컵 7',
@@ -105,9 +129,13 @@
         study: '계획만 많고 집중이 흩어진다. 하나에 몰두해야 한다.',
         business: '방향을 잡지 못하고 흐트러진다.',
         money: '막연한 기대가 크다. 현실적인 계획이 필요하다.',
-        move: '실제로 가기 어려운 곳을 꿈꾼다. 운에 기대는 마음이다.'
+        move: '실제로 가기 어려운 곳을 꿈꾼다. 운에 기대는 마음이다.',
+        friend: '친구에게 바라는 것이 많아 마음이 혼란스럽다. 좋은 면과 싫은 면이 함께 떠오른다.',
+        newterm: '새 학기에 대한 상상은 크지만 현실과 다를 수 있다. 할 일을 하나씩 정해야 한다.',
+        career: '하고 싶은 것이 너무 많거나 너무 멀다. 현실적인 목표 하나를 골라야 한다.',
+        family: '가족에게 기대하는 것과 실제가 달라 혼란스럽다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_8', suit: 'cups', rank: '8', nameKo: '컵 8',
@@ -120,9 +148,13 @@
         study: '붙잡고 있던 방법을 내려놓고 새 방식을 찾을 때다.',
         business: '도움이 되지 않는다고 판단해 손을 뗀다.',
         money: '이익이 되지 않는 일에서 물러난다.',
-        move: '감정보다 판단에 따라 유리한 쪽으로 옮겨 간다.'
+        move: '감정보다 판단에 따라 유리한 쪽으로 옮겨 간다.',
+        friend: '미련이 남아도 맞지 않는 관계에서 떠나기로 한다.',
+        newterm: '익숙했던 무리를 뒤로하고 새 관계를 찾아 나선다.',
+        career: '지금까지의 방향을 내려놓고 다른 길을 찾는다. 마음보다 판단을 따른다.',
+        family: '가족과 거리를 두고 내 길을 가려 한다. 독립하고 싶은 마음이 생긴다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_9', suit: 'cups', rank: '9', nameKo: '컵 9',
@@ -135,9 +167,13 @@
         study: '스스로 세운 목표에 닿아 만족한다.',
         business: '남들 기준과 상관없이 내가 정한 목표만큼 이뤄 낸다.',
         money: '내 기준에서 넉넉하고 만족스럽다.',
-        move: '지금이 만족스러워 크게 움직이려 하지 않는다.'
+        move: '지금이 만족스러워 크게 움직이려 하지 않는다.',
+        friend: '지금 관계에 만족한다. 굳이 새 친구를 찾지 않아도 충분하다.',
+        newterm: '새 환경이 마음에 들어 만족스럽다. 나만의 편안한 자리를 찾는다.',
+        career: '내 기준으로 원하던 방향을 얻는다. 남의 평가보다 나의 만족이 중요하다.',
+        family: '집에서 편안하고 만족스럽다. 다만 내 기분이 먼저라 가족을 덜 살필 수 있다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_10', suit: 'cups', rank: '10', nameKo: '컵 10',
@@ -150,9 +186,13 @@
         study: '크게 오르지는 않아도 안정적인 성적을 유지한다.',
         business: '할 일을 다 한 뒤의 안정이다. 큰 발전은 없어도 지금 상태가 이어진다.',
         money: '재물이 안정적으로 유지된다.',
-        move: '가까운 사람들과 만족스럽게 다녀온다. 활동적인 이동은 아니다.'
+        move: '가까운 사람들과 만족스럽게 다녀온다. 활동적인 이동은 아니다.',
+        friend: '친구들과 화목하게 어울린다. 무리 안에서 평화롭고 안정적이다.',
+        newterm: '반 분위기가 화목해 안정적으로 자리 잡는다.',
+        career: '함께하는 사람들과 행복할 수 있는 길을 찾는다. 안정적인 방향이 좋다.',
+        family: '가족이 함께 화목하다. 집안에 평화와 안정이 있다.'
       },
-      inferred: ['job', 'study']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_page', suit: 'cups', rank: 'page', nameKo: '컵 페이지',
@@ -165,9 +205,13 @@
         study: '좋아하는 과목에 마음이 간다. 실천이 따라야 한다.',
         business: '감성적인 아이디어는 있지만 실행력이 부족하다.',
         money: '작은 기쁨에 돈을 쓰는 편이다.',
-        move: '마음은 설레지만 먼저 나서지 않는다.'
+        move: '마음은 설레지만 먼저 나서지 않는다.',
+        friend: '친해지고 싶은 마음은 있지만 수줍어서 먼저 말을 걸지 못한다.',
+        newterm: '설레지만 수줍어 먼저 다가가기 어렵다. 작은 인사부터 시작하면 된다.',
+        career: '마음이 끌리는 분야가 생기지만 아직 자신이 없다. 조금씩 해 보는 것이 좋다.',
+        family: '가족에게 하고 싶은 말이 있지만 꺼내지 못한다. 서툰 표현이라도 전하는 것이 좋다.'
       },
-      inferred: ['love', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_knight', suit: 'cups', rank: 'knight', nameKo: '컵 나이트',
@@ -180,9 +224,13 @@
         study: '기분에 따라 공부 의욕이 오르내린다.',
         business: '이상적인 제안을 내놓지만 현실성 검토가 필요하다.',
         money: '기분 따라 쓰는 돈을 조심해야 한다.',
-        move: '분위기 좋은 여행 제안이 들어온다.'
+        move: '분위기 좋은 여행 제안이 들어온다.',
+        friend: '친구가 다정한 제안이나 화해의 손길을 내민다.',
+        newterm: '마음 맞는 친구에게 함께하자는 제안을 받는다.',
+        career: '마음에 드는 길을 제안받는다. 낭만만큼 현실 조건도 살펴야 한다.',
+        family: '가족 사이에 다정한 말과 마음이 오간다. 화해의 기회가 생긴다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_queen', suit: 'cups', rank: 'queen', nameKo: '컵 퀸',
@@ -195,9 +243,13 @@
         study: '마음이 편해야 집중이 잘된다. 감정 관리가 성적을 좌우한다.',
         business: '상대의 마음을 잘 헤아려 신뢰를 얻는다.',
         money: '마음 가는 곳에 아낌없이 쓴다.',
-        move: '마음이 내키면 움직이지만 기분에 따라 바뀌기 쉽다.'
+        move: '마음이 내키면 움직이지만 기분에 따라 바뀌기 쉽다.',
+        friend: '친구의 마음에 깊이 공감하고 들어 준다. 내 감정 기복이 관계를 흔들지 않게 조심해야 한다.',
+        newterm: '친구들의 마음을 잘 읽어 금방 가까워진다. 감정적으로 쉽게 지칠 수 있다.',
+        career: '사람의 마음을 살피는 일과 잘 맞는다. 공감 능력이 강점이다.',
+        family: '가족의 마음을 잘 헤아린다. 감정이 깊은 만큼 서운함도 크게 느낀다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     },
     {
       id: 'cups_king', suit: 'cups', rank: 'king', nameKo: '컵 킹',
@@ -210,9 +262,13 @@
         study: '흔들림 없이 자기 페이스를 유지한다.',
         business: '분위기를 부드럽게 다루며 협상을 이끈다.',
         money: '안정적으로 관리하되 체면을 위해 쓰기도 한다.',
-        move: '계획에 맞춰 여유 있게 움직인다.'
+        move: '계획에 맞춰 여유 있게 움직인다.',
+        friend: '너그럽게 친구들을 대한다. 다만 속마음은 쉽게 보여 주지 않는다.',
+        newterm: '침착하게 분위기를 살피며 무난하게 적응한다.',
+        career: '감정을 잘 다스리는 성숙함이 강점이다. 사람을 이끌거나 돕는 일과 잘 맞는다.',
+        family: '가족 사이에서 감정을 다독이며 중심을 잡는다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
     }
   ];
 

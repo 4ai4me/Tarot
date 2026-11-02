@@ -115,6 +115,36 @@ body {
 }
 .question input::placeholder { color: #8a857b; }
 
+/* 나이·성별 (선택 입력) */
+.profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px 24px;
+  align-items: start;
+}
+@media (min-width: 560px) {
+  .profile { grid-template-columns: auto minmax(0, 1fr); }
+  .field-error, .profile-note { grid-column: 1 / -1; }
+}
+.age-box { display: inline-flex; align-items: center; gap: 8px; }
+.age input {
+  width: 5.5em;
+  font: inherit;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  background: var(--stock);
+  color: #1d1b18;
+}
+.age input::placeholder { color: #8a857b; }
+.age input[aria-invalid="true"] { border-color: var(--clash); }
+.age-unit { color: var(--ink-soft); }
+.field-error { margin: 0; color: var(--clash); font-size: 0.92rem; font-weight: 600; }
+.field-error:empty { display: none; }
+.profile-note { margin: 0; color: var(--ink-soft); font-size: 0.85rem; }
+
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { position: relative; cursor: pointer; }
 .chip input {
@@ -387,6 +417,44 @@ body {
 .reading-more { margin-top: 12px; font-size: 0.92rem; color: var(--ink-soft); }
 .reading-more summary { cursor: pointer; font-weight: 600; color: var(--ink); }
 .reading-more p { margin: 8px 0 0; line-height: 1.7; }
+
+/* 총평: 그래서 결말은? */
+.summary {
+  margin-top: 40px;
+  padding: 20px 20px 22px;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 var(--sky);
+}
+.summary-title {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  margin: 0 0 12px;
+}
+.summary-body p { margin: 0; word-break: keep-all; }
+.summary-opening { font-weight: 600; }
+.summary-body .summary-flow {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+.summary-ending {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-left: 5px solid var(--sky);
+  background: var(--stock);
+  color: #1d1b18;
+}
+.summary-lead { font-size: 0.92rem; font-weight: 600; }
+.summary-body .summary-text {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.75;
+  margin-top: 4px;
+}
+.summary-body .summary-note { margin-top: 12px; font-size: 0.95rem; color: var(--ink-soft); line-height: 1.7; }
+.summary-error { color: var(--clash); }
 
 .again { margin-top: 36px; text-align: center; }
 .redraw {
