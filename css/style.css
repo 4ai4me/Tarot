@@ -1,0 +1,419 @@
+/*
+ * 색은 1909년 라이더-웨이트 석판 인쇄에서 가져왔다:
+ * 굵은 검은 테두리, 겨자색 하늘, 원소별 평면 색.
+ */
+:root {
+  --paper: #e6ebec;      /* 바탕: 옅은 하늘빛 회색 */
+  --stock: #f6f1e4;      /* 카드 종이 */
+  --ink: #1d1b18;        /* 테두리와 글자 */
+  --ink-soft: #57534b;
+  --line: #c3c8c6;
+  --sky: #e0ab3c;        /* RWS 겨자색 하늘 */
+  --fire: #b8432c;
+  --water: #2d5a88;
+  --air: #c79525;
+  --earth: #557637;
+  --major: #5d5468;
+  --support: #3d7a3a;
+  --clash: #b8432c;
+  --focus: #2d5a88;
+  --serif: 'Gowun Batang', 'Nanum Myeongjo', 'AppleMyungjo', serif;
+  --sans: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1a1f24;
+    --stock: #ece4d1;
+    --ink: #ece7dc;
+    --ink-soft: #a9a397;
+    --line: #3a434b;
+    --support: #7fbf72;
+    --clash: #e2785f;
+    --focus: #8fb6e0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1a1f24;
+  --stock: #ece4d1;
+  --ink: #ece7dc;
+  --ink-soft: #a9a397;
+  --line: #3a434b;
+  --support: #7fbf72;
+  --clash: #e2785f;
+  --focus: #8fb6e0;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.masthead, main, .footer {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- 머리말 ---------- */
+.masthead { padding-top: 40px; }
+.masthead h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 7vw, 3.4rem);
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.lede {
+  margin: 12px 0 0;
+  color: var(--ink-soft);
+  max-width: 34em;
+}
+
+/* ---------- 설정 폼 ---------- */
+.setup {
+  margin-top: 32px;
+  display: grid;
+  gap: 24px;
+}
+.field-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  padding: 0;
+}
+.field-label small { font-weight: 400; color: var(--ink-soft); }
+.choice { border: 0; margin: 0; padding: 0; min-width: 0; }
+
+.question input {
+  width: 100%;
+  font: inherit;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  padding: 12px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  background: var(--stock);
+  color: #1d1b18;
+}
+.question input::placeholder { color: #8a857b; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; cursor: pointer; }
+.chip input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.chip span {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  background: transparent;
+  transition: background-color 0.15s, color 0.15s;
+}
+.chip input:checked + span {
+  background: var(--ink);
+  color: var(--paper);
+}
+.chip input:focus-visible + span {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.draw, .redraw {
+  font: inherit;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 14px 24px;
+}
+.draw {
+  background: var(--sky);
+  color: #1d1b18;
+  border: 2px solid #1d1b18;
+  box-shadow: 3px 3px 0 #1d1b18;
+}
+.draw:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #1d1b18; }
+.draw:disabled {
+  background: transparent;
+  color: var(--ink-soft);
+  border-color: var(--line);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.hint { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+
+/* ---------- 결과 ---------- */
+.result { margin-top: 48px; padding-top: 32px; border-top: 2px solid var(--ink); }
+.result-title {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 4.5vw, 2rem);
+  line-height: 1.3;
+  margin: 0 0 24px;
+  outline: none;
+}
+.result-title::after {
+  content: attr(data-area);
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+/* 카드 세 장과 그 사이 관계선 */
+.table {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr) 40px minmax(0, 1fr);
+  align-items: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+@media (min-width: 600px) {
+  .table { grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr) 72px minmax(0, 1fr); }
+}
+
+.card { margin: 0; perspective: 900px; }
+.card-inner {
+  position: relative;
+  aspect-ratio: 7 / 12;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.card.is-revealed .card-inner { transform: rotateY(180deg); }
+.card.no-anim .card-inner { transition: none; }
+
+.card-back, .card-front {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 3px solid #1d1b18;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.card-back {
+  background-color: var(--water);
+  background-image:
+    radial-gradient(circle at 50% 50%, var(--sky) 0 9%, transparent 10%),
+    repeating-linear-gradient(45deg, transparent 0 10px, rgba(255, 255, 255, 0.16) 10px 12px),
+    repeating-linear-gradient(-45deg, transparent 0 10px, rgba(255, 255, 255, 0.16) 10px 12px);
+}
+.card-front {
+  transform: rotateY(180deg);
+  background: var(--stock);
+  color: #1d1b18;
+}
+
+/* 그림을 못 불러올 때 보이는 카드 면 (RWS 배치: 위 숫자, 가운데 그림, 아래 이름) */
+.face {
+  position: absolute;
+  inset: 5px;
+  border: 1.5px solid #1d1b18;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  text-align: center;
+  background: linear-gradient(var(--sky) 0 58%, var(--stock) 58%);
+}
+.face-top, .face-name {
+  background: var(--stock);
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(0.62rem, 2.6vw, 0.95rem);
+  line-height: 1.2;
+  padding: 4px 2px;
+}
+.face-top { border-bottom: 1.5px solid #1d1b18; }
+.face-name { border-top: 1.5px solid #1d1b18; word-break: keep-all; }
+.face-art { display: grid; place-items: center; }
+.emblem {
+  width: 62%;
+  height: auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.el-fire .emblem { color: var(--fire); }
+.el-water .emblem { color: var(--water); }
+.el-air .emblem { color: #1d1b18; }
+.el-earth .emblem { color: var(--earth); }
+.el-major .emblem { color: var(--major); }
+
+.card-front img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.card-front img.is-loaded { opacity: 1; }
+
+.card-pos {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.link {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 60px;
+}
+.link-line {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 50%;
+  border-top: 3px solid var(--ink-soft);
+}
+.tone-support .link-line { border-top-color: var(--support); }
+.tone-clash .link-line { border-top: 3px dashed var(--clash); }
+.tone-neutral .link-line { border-top: 2px dotted var(--ink-soft); }
+.link-label {
+  position: relative;
+  background: var(--paper);
+  padding: 2px 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  word-break: keep-all;
+}
+.tone-support .link-label { color: var(--support); }
+.tone-clash .link-label { color: var(--clash); }
+@media (min-width: 600px) { .link-label { font-size: 0.85rem; } }
+
+/* 가운데 카드 판정 */
+.center-effect {
+  max-width: 680px;
+  margin: 28px auto 0;
+  padding: 14px 16px;
+  border-left: 5px solid var(--ink-soft);
+  background: color-mix(in srgb, var(--paper) 70%, var(--stock));
+  font-size: 0.97rem;
+}
+.center-effect.level-strong, .center-effect.level-pure { border-left-color: var(--support); }
+.center-effect.level-weak { border-left-color: var(--clash); }
+.center-effect.level-major { border-left-color: var(--major); }
+.relation-notes {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+.relation-notes strong { color: var(--ink); font-weight: 600; }
+
+/* 해석 */
+.readings {
+  margin-top: 36px;
+  display: grid;
+  gap: 28px;
+}
+.area-note { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+@media (min-width: 760px) {
+  .readings { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .area-note { grid-column: 1 / -1; }
+}
+.reading {
+  border-top: 4px solid var(--major);
+  padding-top: 12px;
+}
+.reading.el-fire { border-top-color: var(--fire); }
+.reading.el-water { border-top-color: var(--water); }
+.reading.el-air { border-top-color: var(--air); }
+.reading.el-earth { border-top-color: var(--earth); }
+.reading-pos { margin: 0; font-weight: 600; font-size: 0.9rem; color: var(--ink-soft); }
+.reading-name {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin: 2px 0 0;
+}
+.reading-meta { margin: 2px 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+.keywords {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+}
+.keywords li {
+  font-size: 0.82rem;
+  padding: 1px 8px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+.reading-text {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin: 14px 0 0;
+  word-break: keep-all;
+}
+.reading-more { margin-top: 12px; font-size: 0.92rem; color: var(--ink-soft); }
+.reading-more summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+.reading-more p { margin: 8px 0 0; line-height: 1.7; }
+
+.again { margin-top: 36px; text-align: center; }
+.redraw {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+}
+
+.load-error, .noscript {
+  margin-top: 32px;
+  padding: 14px 16px;
+  border-left: 5px solid var(--clash);
+  background: var(--stock);
+  color: #1d1b18;
+}
+
+/* ---------- 바닥글 ---------- */
+.footer {
+  margin-top: 64px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.footer p { margin: 0 0 6px; max-width: 46em; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card-inner, .chip span, .card-front img { transition: none; }
+}
