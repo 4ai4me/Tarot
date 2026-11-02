@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>세 장의 타로</title>
+  <meta name="description" content="질문 영역을 고르고 카드 세 장을 뽑아 읽는 개인용 타로">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="masthead">
+    <h1>세 장의 타로</h1>
+    <p class="lede">마음속 질문을 정하고, 어느 영역을 볼지 고른 뒤 카드를 뽑으세요.</p>
+  </header>
+
+  <main>
+    <form id="setup" class="setup" novalidate>
+      <label class="question">
+        <span class="field-label">마음속 질문 <small>(선택, 저장되지 않음)</small></span>
+        <input id="question" type="text" maxlength="80" autocomplete="off"
+               placeholder="예: 이번 학기 안에 이직할 수 있을까요?">
+      </label>
+
+      <fieldset class="choice">
+        <legend class="field-label">볼 영역</legend>
+        <div id="areas" class="chips"></div>
+      </fieldset>
+
+      <fieldset class="choice">
+        <legend class="field-label">카드 자리</legend>
+        <div id="spreads" class="chips"></div>
+      </fieldset>
+
+      <div class="actions">
+        <button id="draw" type="submit" class="draw" disabled>카드 세 장 뽑기</button>
+        <p id="hint" class="hint" aria-live="polite">볼 영역을 먼저 고르세요.</p>
+      </div>
+    </form>
+
+    <section id="result" class="result" hidden aria-labelledby="result-title">
+      <h2 id="result-title" class="result-title"></h2>
+      <div id="table" class="table"></div>
+      <p id="center-effect" class="center-effect"></p>
+      <div id="readings" class="readings"></div>
+      <div class="again">
+        <button id="redraw" type="button" class="redraw">같은 질문으로 다시 뽑기</button>
+      </div>
+    </section>
+
+    <noscript><p class="noscript">이 페이지는 자바스크립트가 켜져 있어야 동작합니다.</p></noscript>
+    <p id="load-error" class="load-error" hidden></p>
+  </main>
+
+  <footer class="footer">
+    <p>자기이해를 돕기 위한 참고용입니다. 의료·법률·투자 등 중요한 결정의 근거로 쓰지 마세요.</p>
+    <p>카드 그림: 라이더-웨이트-스미스 덱 1909년 원본(퍼블릭 도메인, 위키미디어 공용). 해석은 강의 교안을 바탕으로 새로 쓴 문장입니다.</p>
+  </footer>
+
+  <script src="js/reading.js"></script>
+  <script src="js/data/major.js"></script>
+  <script src="js/data/wands.js"></script>
+  <script src="js/data/cups.js"></script>
+  <script src="js/data/swords.js"></script>
+  <script src="js/data/pentacles.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
