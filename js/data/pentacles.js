@@ -1,6 +1,7 @@
 /*
  * 펜타클(흙) 14장 해석. 교안 바탕으로 새로 쓴 문장.
  * inferred: 교안에 해당 영역 해석이 없어 원소·숫자·계급 원리로 추론해 쓴 영역 (검토 필요).
+ * symbols(그림 속 상징), friendBySchool(초·중·고 친구 관계), advice(지금 해 볼 일)도 추론으로 새로 쓴 문장이다.
  */
 (function (root) {
   var cards = [
@@ -19,9 +20,20 @@
         friend: '믿을 만한 친구가 생긴다. 실속 있고 든든한 관계의 시작이다.',
         newterm: '준비한 만큼 안정적으로 출발한다. 현실적인 기회가 손에 들어온다.',
         career: '진로에 필요한 확실한 기회가 생긴다. 준비해 온 것이 첫 결과로 이어진다.',
-        family: '집안에 현실적인 좋은 일이 생긴다. 기반이 안정된다.'
+        family: '집안에 현실적인 좋은 일이 생긴다. 기반이 안정된다.',
+        crush: '천천히 하지만 단단한 마음이 시작된다. 믿음이 가는 사람과 인연이 생긴다.',
+        looks: '나에게 꼭 맞는 기본 아이템을 찾기 좋은 때다. 좋은 습관 하나가 큰 변화를 만든다.',
+        mind: '마음이 안정을 찾기 시작한다. 생활 리듬을 잡으면 더 단단해진다.',
+        allowance: '용돈 관리를 새로 시작하기 좋은 때다. 저금통이나 통장을 하나 정해 모아 보자.'
       },
-      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['구름에서 내민 펜타클: 손에 쥔 실제 기회', '꽃 핀 아치와 정원: 안전하게 열린 길'],
+      friendBySchool: {
+        elementary: '믿을 만한 친구가 생긴다. 약속을 잘 지키면 오래 친하게 지낸다.',
+        middle: '든든한 친구가 생긴다. 함께 공부하거나 무언가를 하며 가까워진다.',
+        high: '오래 갈 친구 관계가 시작된다. 서로에게 실제로 도움이 되는 사이다.'
+      },
+      advice: '이번 주 용돈이나 시간 중 작은 몫을 미래를 위해 따로 떼어 두세요.'
     },
     {
       id: 'pentacles_2', suit: 'pentacles', rank: '2', nameKo: '펜타클 2',
@@ -38,9 +50,20 @@
         friend: '여러 관계를 동시에 챙기느라 버겁다. 이것저것 저울질하며 지켜보는 중이다.',
         newterm: '공부와 생활을 동시에 맞추느라 바쁘다. 버겁지만 어떻게든 유지한다.',
         career: '여러 선택지를 동시에 저울질한다. 결정이 늦어질 수 있다.',
-        family: '집안 사정과 내 일을 동시에 챙기느라 버겁다.'
+        family: '집안 사정과 내 일을 동시에 챙기느라 버겁다.',
+        crush: '마음과 현실 사이에서 저울질한다. 둘 다 놓치지 않으려면 여유가 필요하다.',
+        looks: '이것저것 맞춰 보며 나에게 맞는 조합을 찾는다. 가진 옷으로 새로운 조합을 만들어 보자.',
+        mind: '할 일이 많아 이리저리 맞추느라 바쁘다. 너무 많으면 하나는 내려놓자.',
+        allowance: '들어오는 돈과 나가는 돈을 맞추느라 바쁘다. 한 달 계획을 세우면 덜 흔들린다.'
       },
-      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['펜타클 두 개를 돌리는 사람: 여러 일을 맞춰 나감', '파도 위의 배: 오르내리는 상황'],
+      friendBySchool: {
+        elementary: '이 친구, 저 친구와 번갈아 논다. 약속이 겹치지 않게 조심하자.',
+        middle: '여러 무리를 오가느라 바쁘다. 다 맞추려다 지치지 않게 하자.',
+        high: '공부, 학원, 친구를 함께 챙기느라 버겁다. 우선순위를 정하면 여유가 생긴다.'
+      },
+      advice: '이번 주 일정표를 짜고 겹치는 일 하나를 조정해 보세요.'
     },
     {
       id: 'pentacles_3', suit: 'pentacles', rank: '3', nameKo: '펜타클 3',
@@ -57,9 +80,20 @@
         friend: '함께 무언가를 하며 가까워진다. 딱 적당한 거리의 관계다.',
         newterm: '모둠 활동이나 역할 분담 속에서 자연스럽게 자리 잡는다.',
         career: '실력을 인정받으며 기반을 쌓는다. 여럿이 함께 일하는 분야와 잘 맞는다.',
-        family: '가족이 각자 역할을 나누어 집안을 꾸린다. 협력이 잘 된다.'
+        family: '가족이 각자 역할을 나누어 집안을 꾸린다. 협력이 잘 된다.',
+        crush: '함께 무언가를 하며 자연스럽게 가까워진다. 같은 모둠이나 활동이 좋은 기회다.',
+        looks: '조언을 받아 함께 꾸미면 결과가 좋다. 친구나 가족의 의견을 들어 보자.',
+        mind: '함께하는 일 속에서 마음이 안정된다. 혼자보다 같이할 때 힘이 난다.',
+        allowance: '친구와 함께 계획해 쓰면 알뜰하다. 공동 구매나 나눠 쓰기를 생각해 보자.'
       },
-      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['성당에서 일하는 석공: 실력을 쌓아 가는 과정', '설계도를 든 두 사람: 함께 의견을 모음'],
+      friendBySchool: {
+        elementary: '친구들과 함께 만들기나 놀이를 하며 친해진다. 서로 역할을 나누자.',
+        middle: '모둠 활동에서 친구와 가까워진다. 서로의 장점을 인정하면 더 잘 맞는다.',
+        high: '함께 공부하거나 프로젝트를 하며 가까워진다. 서로 도움이 되는 관계다.'
+      },
+      advice: '혼자 하던 일을 누군가와 함께 해 보세요.'
     },
     {
       id: 'pentacles_4', suit: 'pentacles', rank: '4', nameKo: '펜타클 4',
@@ -76,9 +110,20 @@
         friend: '지금 친구를 놓치기 싫어 붙잡는다. 다른 친구와 어울리는 것을 꺼린다.',
         newterm: '익숙한 것을 고집해 새 환경을 받아들이기 어렵다.',
         career: '안정된 길만 붙잡고 새 도전을 망설인다.',
-        family: '가진 것을 지키려 서로 아끼고 조심한다. 변화를 꺼리는 분위기다.'
+        family: '가진 것을 지키려 서로 아끼고 조심한다. 변화를 꺼리는 분위기다.',
+        crush: '상대를 놓치기 싫어 꼭 붙잡고 싶다. 붙잡을수록 상대가 답답할 수 있다.',
+        looks: '익숙한 스타일만 고집한다. 가끔은 새로운 시도도 괜찮다.',
+        mind: '잃을까 봐 꽉 쥐고 있어 마음이 긴장된다. 조금 내려놓아도 괜찮다.',
+        allowance: '돈을 꼭 쥐고 잘 모은다. 다만 필요한 곳에는 쓰자.'
       },
-      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family']
+      inferred: ['job', 'study', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['펜타클을 끌어안은 사람: 지키려는 마음', '발밑과 머리 위의 펜타클: 꽉 쥐어 움직이지 못함'],
+      friendBySchool: {
+        elementary: '단짝이 다른 친구와 놀면 서운하다. 같이 놀자고 하면 친구가 더 늘어난다.',
+        middle: '친한 친구를 다른 무리에 빼앗길까 걱정한다. 친구의 다른 관계도 인정해 주자.',
+        high: '익숙한 친구들만 고집한다. 새 사람에게도 마음을 조금 열어 보자.'
+      },
+      advice: '꽉 쥐고 있던 것 하나를 나누거나 조금 풀어 보세요.'
     },
     {
       id: 'pentacles_5', suit: 'pentacles', rank: '5', nameKo: '펜타클 5',
@@ -95,9 +140,20 @@
         friend: '함께 있어도 불편하고 소외감을 느낀다. 도움을 청하면 손 내밀 사람이 있다.',
         newterm: '새 반에서 소외감을 느낄 수 있다. 먼저 도움을 청하는 용기가 필요하다.',
         career: '조건이 부족해 원하는 길이 멀게 느껴진다. 도움받을 곳을 찾아야 한다.',
-        family: '집안 사정이나 분위기가 어렵다. 함께 있어도 서로 힘들다.'
+        family: '집안 사정이나 분위기가 어렵다. 함께 있어도 서로 힘들다.',
+        crush: '외롭고 자신이 없어 마음을 꺼내기 어렵다. 나를 따뜻하게 대해 주는 사람이 가까이 있다.',
+        looks: '내 모습이 초라하게 느껴진다. 그 느낌은 지나가는 것이고 나는 충분히 괜찮다.',
+        mind: '외롭고 힘든 마음이 크다. 도움을 청하면 손을 내밀 사람이 있으니 꼭 이야기하자.',
+        allowance: '돈이 부족해 불편하다. 부모님이나 어른과 솔직하게 상의하자.'
       },
-      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['눈 속을 걷는 두 사람: 춥고 힘든 시기', '불 켜진 창문: 바로 곁에 있는 도움'],
+      friendBySchool: {
+        elementary: '친구들 사이에서 혼자인 것 같아 슬프다. 꼭 선생님이나 부모님께 이야기하자.',
+        middle: '무리에서 소외된 느낌이 든다. 혼자 견디지 말고 믿는 어른이나 상담 선생님에게 도움을 청하자.',
+        high: '함께 있어도 외롭다. 도움을 청하면 곁에 있어 줄 친구와 어른이 있다.'
+      },
+      advice: '혼자 힘들다면 오늘 한 사람에게 도움을 청해 보세요.'
     },
     {
       id: 'pentacles_6', suit: 'pentacles', rank: '6', nameKo: '펜타클 6',
@@ -114,9 +170,20 @@
         friend: '친구에게 도움을 주거나 받는다. 주고받는 균형이 맞는지 살펴야 한다.',
         newterm: '친절을 베풀거나 도움을 받으며 관계를 맺는다.',
         career: '진로를 도와줄 사람이 생긴다. 조건을 잘 따져 봐야 한다.',
-        family: '가족 사이에 도움이 오간다. 누가 더 주고받는지로 서운함이 생기지 않게 해야 한다.'
+        family: '가족 사이에 도움이 오간다. 누가 더 주고받는지로 서운함이 생기지 않게 해야 한다.',
+        crush: '마음을 주고받는 균형을 살핀다. 한쪽만 주는 관계가 되지 않게 하자.',
+        looks: '내가 가진 좋은 점을 남과 나누면 더 빛난다. 칭찬도 주고받자.',
+        mind: '도움을 주고받으며 마음이 따뜻해진다. 받는 것도 부끄러운 일이 아니다.',
+        allowance: '친구에게 빌려주거나 빌릴 일이 생긴다. 언제 갚을지 분명히 하자.'
       },
-      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['저울을 든 상인: 공정하게 나눔', '무릎 꿇은 두 사람: 도움을 받는 자리'],
+      friendBySchool: {
+        elementary: '친구와 장난감이나 간식을 나눈다. 빌린 것은 꼭 돌려주자.',
+        middle: '친구를 돕거나 도움을 받는다. 주고받는 것이 한쪽으로 치우치지 않게 하자.',
+        high: '공부 자료나 정보를 나누며 가까워진다. 서로 돕는 관계가 힘이 된다.'
+      },
+      advice: '도움이 필요한 사람에게 작은 도움을 주거나, 필요한 도움을 요청해 보세요.'
     },
     {
       id: 'pentacles_7', suit: 'pentacles', rank: '7', nameKo: '펜타클 7',
@@ -133,9 +200,20 @@
         friend: '지금 관계가 아직 아쉽다. 더 가까워지려면 노력이 필요하다.',
         newterm: '생각만큼 잘 적응하지 못해 아쉽다. 무엇을 바꿀지 돌아보는 시기다.',
         career: '지금까지의 노력이 만족스럽지 않다. 방향을 다시 점검한다.',
-        family: '가족을 위해 애쓴 만큼 돌아오지 않아 아쉽다.'
+        family: '가족을 위해 애쓴 만큼 돌아오지 않아 아쉽다.',
+        crush: '마음을 키워 왔지만 아직 결과가 없어 아쉽다. 조금 더 지켜보며 노력해 보자.',
+        looks: '노력해 왔지만 변화가 더디게 느껴진다. 꾸준히 하면 결과가 따라온다.',
+        mind: '열심히 했는데 결과가 아쉬워 마음이 복잡하다. 지금까지 해 온 것도 충분히 의미 있다.',
+        allowance: '모은 돈을 보며 더 모을지 쓸지 고민한다. 목표를 다시 점검해 보자.'
       },
-      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['괭이에 기대어 바라보는 농부: 결과를 기다리며 돌아봄', '덤불에 열린 펜타클: 자라나는 결실'],
+      friendBySchool: {
+        elementary: '친구와 더 친해지고 싶은데 잘 안 된다. 같이 노는 시간을 조금씩 늘려 보자.',
+        middle: '친구 관계가 아직 아쉽다. 조급해하지 말고 꾸준히 다가가자.',
+        high: '노력에 비해 관계가 더디게 가까워진다. 시간이 해결해 줄 부분도 있다.'
+      },
+      advice: '지금까지 해 온 노력을 돌아보고 다음에 바꿀 점 하나를 적어 보세요.'
     },
     {
       id: 'pentacles_8', suit: 'pentacles', rank: '8', nameKo: '펜타클 8',
@@ -152,9 +230,20 @@
         friend: '공부나 일에 몰두해 친구에게 신경 쓸 겨를이 없다.',
         newterm: '성실하게 공부와 생활 습관을 다지며 적응한다.',
         career: '꾸준한 연습과 반복으로 실력을 쌓는다. 기술이나 전문성이 필요한 길과 잘 맞는다.',
-        family: '각자 일에 몰두해 대화가 적다. 성실하게 제 몫을 한다.'
+        family: '각자 일에 몰두해 대화가 적다. 성실하게 제 몫을 한다.',
+        crush: '마음보다 할 일에 집중하는 시기다. 꾸준한 모습이 상대에게 믿음을 준다.',
+        looks: '꾸준한 관리가 효과를 낸다. 매일 작은 습관을 이어 가자.',
+        mind: '한 가지에 몰두하며 마음이 차분해진다. 집중이 좋은 쉼이 될 때도 있다.',
+        allowance: '꾸준히 조금씩 모은다. 작은 돈도 쌓이면 크다.'
       },
-      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['펜타클을 새기는 장인: 꾸준한 연습과 숙련', '벽에 걸린 완성품: 쌓여 가는 실력'],
+      friendBySchool: {
+        elementary: '좋아하는 것에 빠져 친구와 놀 시간이 줄어든다. 친구와 함께 하면 더 즐겁다.',
+        middle: '공부나 취미에 몰두해 친구에게 소홀해진다. 짧은 연락이라도 이어 가자.',
+        high: '공부에 집중하느라 친구에게 신경 쓸 겨를이 없다. 같이 공부하는 친구가 힘이 된다.'
+      },
+      advice: '매일 10분씩 이어 갈 작은 습관 하나를 정해 오늘 시작해 보세요.'
     },
     {
       id: 'pentacles_9', suit: 'pentacles', rank: '9', nameKo: '펜타클 9',
@@ -171,9 +260,20 @@
         friend: '혼자서도 충분해 새 친구를 찾지 않는다. 친구가 서운해할 수 있다.',
         newterm: '스스로 공들여 만든 생활이 안정적이다. 혼자서도 잘 지낸다.',
         career: '스스로 쌓아 온 능력으로 원하는 자리를 얻는다. 자립하는 길이 어울린다.',
-        family: '집에서 여유롭고 편안하다. 가족에게 기대지 않고 스스로 해낸다.'
+        family: '집에서 여유롭고 편안하다. 가족에게 기대지 않고 스스로 해낸다.',
+        crush: '혼자서도 충분히 즐겁다. 서두르지 않아도 매력이 자연스럽게 전해진다.',
+        looks: '나를 위해 투자한 시간이 빛을 낸다. 품위 있고 여유로운 모습이 매력이다.',
+        mind: '혼자서도 마음이 넉넉하고 여유롭다. 스스로를 칭찬해 주자.',
+        allowance: '아껴 모은 덕분에 여유가 생긴다. 나를 위한 의미 있는 곳에 써 보자.'
       },
-      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['포도밭의 여인: 스스로 일군 풍요', '손 위의 매: 잘 다스린 마음'],
+      friendBySchool: {
+        elementary: '혼자서도 잘 논다. 친구가 함께 놀자고 하면 반갑게 응해 주자.',
+        middle: '혼자서도 충분해 새 친구를 찾지 않는다. 친구가 서운해하지 않게 가끔 먼저 연락하자.',
+        high: '스스로 해 나가는 힘이 있다. 친구에게 도움을 주는 여유도 생긴다.'
+      },
+      advice: '혼자서 즐길 수 있는 좋은 시간을 오늘 한 번 가져 보세요.'
     },
     {
       id: 'pentacles_10', suit: 'pentacles', rank: '10', nameKo: '펜타클 10',
@@ -190,9 +290,20 @@
         friend: '오래된 친구 무리 안에서 안정적이다. 그러나 속마음까지 전해지지는 않는다.',
         newterm: '큰 학교나 넓은 무리에 속하게 된다. 아는 사람이나 인맥이 도움이 된다.',
         career: '집안이나 주변의 도움이 진로에 작용한다. 규모 있고 안정적인 길과 연결된다.',
-        family: '집안이 안정되어 있지만 서로의 마음은 잘 전해지지 않는다.'
+        family: '집안이 안정되어 있지만 서로의 마음은 잘 전해지지 않는다.',
+        crush: '오래 알고 지낸 사이에서 마음이 자란다. 다만 속마음까지는 아직 전해지지 않았다.',
+        looks: '가족에게서 물려받은 나만의 장점이 있다. 그 장점을 살리면 좋다.',
+        mind: '가족과 익숙한 환경에서 안정감을 느낀다. 그래도 속마음은 표현해야 전해진다.',
+        allowance: '가족과 함께 돈 계획을 세우면 좋다. 큰 목표는 가족과 상의하자.'
       },
-      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family']
+      inferred: ['heart', 'job', 'study', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['아치 아래의 가족: 대대로 이어지는 안정', '개를 쓰다듬는 노인: 오래 지켜 온 것'],
+      friendBySchool: {
+        elementary: '오래된 친구들과 편하게 논다. 새로 온 친구도 함께 끼워 주자.',
+        middle: '익숙한 친구 무리 안에서 안정적이다. 속마음을 나누면 더 가까워진다.',
+        high: '오래된 친구 무리가 든든하다. 서로의 진짜 고민도 나눠 보자.'
+      },
+      advice: '가족에게 요즘 내 생각이나 고민을 하나 이야기해 보세요.'
     },
     {
       id: 'pentacles_page', suit: 'pentacles', rank: 'page', nameKo: '펜타클 페이지',
@@ -209,9 +320,20 @@
         friend: '조심스럽게 천천히 다가간다. 친구들의 시선을 신경 쓴다.',
         newterm: '차근차근 준비하며 조심스럽게 적응한다.',
         career: '배우며 준비하는 단계다. 차근차근 쌓으면 기회가 온다.',
-        family: '가족의 기대를 의식하며 성실하게 지낸다.'
+        family: '가족의 기대를 의식하며 성실하게 지낸다.',
+        crush: '조심스럽게 천천히 마음을 키운다. 작은 관심 표현부터 시작해 보자.',
+        looks: '스타일을 공부하듯 알아보는 시기다. 기본부터 하나씩 익혀 보자.',
+        mind: '배우고 싶은 마음이 생겨 차분해진다. 작은 목표가 마음을 안정시킨다.',
+        allowance: '돈 관리를 처음 배우기 좋은 때다. 용돈 기입장을 써 보자.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['펜타클을 바라보는 소년: 배움과 성실함', '갈아 놓은 들판: 앞으로 자랄 가능성'],
+      friendBySchool: {
+        elementary: '조심스럽게 친구에게 다가간다. 함께 공부하거나 숙제를 하며 친해진다.',
+        middle: '친구들 시선을 신경 쓰며 천천히 다가간다. 꾸준히 대하면 믿음을 얻는다.',
+        high: '신중하게 친구를 사귄다. 공부하며 만난 친구가 좋은 인연이 된다.'
+      },
+      advice: '용돈 기입장이나 하루 계획표를 오늘부터 써 보세요.'
     },
     {
       id: 'pentacles_knight', suit: 'pentacles', rank: 'knight', nameKo: '펜타클 나이트',
@@ -228,9 +350,20 @@
         friend: '신중하게 사람을 사귄다. 천천히 친해지지만 오래 간다.',
         newterm: '서두르지 않고 천천히 적응한다. 처음엔 소극적으로 보일 수 있다.',
         career: '확실한 길만 골라 신중하게 움직인다. 진행은 느리지만 꾸준하다.',
-        family: '집안 일을 묵묵히 꾸준하게 맡는다. 변화보다 지금을 지키려 한다.'
+        family: '집안 일을 묵묵히 꾸준하게 맡는다. 변화보다 지금을 지키려 한다.',
+        crush: '천천히 꾸준하게 다가간다. 느려도 진심은 확실하게 전해진다.',
+        looks: '천천히 꾸준하게 관리하는 편이다. 변화는 느리지만 확실하다.',
+        mind: '느리지만 꾸준하게 해 나가는 중이다. 속도보다 방향이 중요하다.',
+        allowance: '신중하게 쓰고 꾸준히 모은다. 계획대로 가면 목표에 닿는다.'
       },
-      inferred: ['job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
+      inferred: ['job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['멈춰 선 검은 말: 신중하고 꾸준한 걸음', '펜타클을 바라보는 기사: 현실을 꼼꼼히 살핌'],
+      friendBySchool: {
+        elementary: '천천히 친해지지만 한번 친해지면 오래 간다. 친구를 기다려 주자.',
+        middle: '신중하게 친구를 사귄다. 금방 친해지지 않아도 괜찮다.',
+        high: '천천히 깊어지는 우정이다. 서로를 믿고 오래 갈 수 있다.'
+      },
+      advice: '서두르던 일 하나를 정해 오늘은 정해진 만큼만 꾸준히 해 보세요.'
     },
     {
       id: 'pentacles_queen', suit: 'pentacles', rank: 'queen', nameKo: '펜타클 퀸',
@@ -247,9 +380,20 @@
         friend: '친구를 현실적으로 잘 챙겨 준다. 믿고 기댈 수 있는 사이다.',
         newterm: '차분하고 믿음직한 인상으로 편안하게 자리 잡는다.',
         career: '사람을 돌보며 실속을 챙기는 길과 잘 맞는다. 안정적인 방향이 좋다.',
-        family: '가족을 따뜻하고 실속 있게 보살핀다. 집안이 안정적이다.'
+        family: '가족을 따뜻하고 실속 있게 보살핀다. 집안이 안정적이다.',
+        crush: '현실적으로 상대를 챙기며 다가간다. 따뜻한 배려가 마음을 연다.',
+        looks: '편안하고 단정한 모습이 매력이다. 나를 잘 돌보는 습관이 겉으로 드러난다.',
+        mind: '나와 주변을 잘 돌보며 안정감을 느낀다. 남을 돌보는 만큼 나도 챙기자.',
+        allowance: '알뜰하고 실속 있게 관리한다. 필요한 곳에 잘 쓰는 법을 안다.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['무릎 위의 펜타클: 소중히 돌보는 마음', '토끼와 꽃: 풍요롭고 안정된 환경'],
+      friendBySchool: {
+        elementary: '친구를 잘 챙겨 준다. 친구도 나를 믿고 기댄다.',
+        middle: '친구를 현실적으로 잘 챙겨 믿음을 얻는다. 나도 기댈 친구를 두자.',
+        high: '믿고 기댈 수 있는 친구다. 서로 실제로 도움을 주고받는다.'
+      },
+      advice: '나를 돌보는 일(정리, 식사, 잠) 하나를 오늘 챙겨 보세요.'
     },
     {
       id: 'pentacles_king', suit: 'pentacles', rank: 'king', nameKo: '펜타클 킹',
@@ -266,9 +410,20 @@
         friend: '든든하고 믿음직한 친구다. 감정 표현보다 현실적인 도움을 준다.',
         newterm: '안정된 기반 위에서 여유 있게 시작한다.',
         career: '오랜 노력 끝에 탄탄한 성과를 이룬다. 현실적이고 안정된 길이 어울린다.',
-        family: '집안의 기반이 탄탄하다. 현실적인 면에서 가족을 든든히 받친다.'
+        family: '집안의 기반이 탄탄하다. 현실적인 면에서 가족을 든든히 받친다.',
+        crush: '든든하고 믿음직한 모습으로 다가간다. 말보다 행동으로 마음을 보여 준다.',
+        looks: '여유 있고 안정된 분위기가 매력이다. 좋은 것 하나를 오래 쓰는 스타일이 어울린다.',
+        mind: '마음이 안정되어 흔들림이 적다. 이 안정감을 주변과 나누자.',
+        allowance: '계획적으로 관리해 돈이 잘 모인다. 모은 돈을 의미 있는 곳에 쓰자.'
       },
-      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family']
+      inferred: ['love', 'heart', 'job', 'study', 'business', 'money', 'move', 'friend', 'newterm', 'career', 'family', 'crush', 'looks', 'mind', 'allowance'],
+      symbols: ['포도 무늬 옷의 왕: 노력으로 이룬 풍요', '황소 머리 왕좌: 흔들리지 않는 안정'],
+      friendBySchool: {
+        elementary: '친구들이 믿고 따른다. 내 것을 나누면 더 사랑받는다.',
+        middle: '든든한 친구로 여겨진다. 감정 표현도 조금 더 해 보자.',
+        high: '현실적인 도움을 주는 믿음직한 친구다. 따뜻한 말 한마디도 함께 건네자.'
+      },
+      advice: '이번 달 쓰고 모을 돈을 계획표로 정리해 보세요.'
     }
   ];
 

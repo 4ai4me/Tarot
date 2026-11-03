@@ -227,14 +227,23 @@ test('summarize: 양옆 상쇄와 가운데 메이저', () => {
 });
 
 test('summarize: 모든 영역·배열·무작위 조합에서 빈칸 없는 문장이 나온다', () => {
-  const profiles = [{}, { age: 17, gender: 'female' }, { age: 45, gender: 'male' }, { age: null, gender: 'none' }];
+  const profiles = [{}, { age: 17, gender: 'female', school: 'high' }, { age: 45, gender: 'male' },
+    { age: null, gender: 'none', school: 'elementary' }, { age: 14, school: 'middle' }];
   let n = 0;
   for (let t = 0; t < 300; t++) {
     const hand = R.draw(realDeck, 3);
     for (const area of R.AREAS) {
       for (const spread of R.SPREADS) {
         const s = R.summarize(hand, area.key, spread.key, profiles[t % profiles.length]);
-        const all = [s.opening, ...s.flow, s.endingLead, s.endingText, ...s.notes];
+        const all = [s.opening, ...s.flow, s.endingLead, s.endingText, ...s.notes, s.conclusion, s.action.text];
+        assert.ok(hand.some((c) => c.nameKo === s.action.cardName), '해 볼 일 카드 이름');
+        const prof = profiles[t % profiles.length];
+        if (area.key === 'friend' && prof.school) {
+          assert.equal(s.endingSchool, hand[2].friendBySchool[prof.school]);
+          all.push(s.endingSchool);
+        } else {
+          assert.equal(s.endingSchool, '');
+        }
         assert.equal(s.flow.length, 3);
         assert.ok(s.notes.length >= 1);
         for (const text of all) {
@@ -247,7 +256,7 @@ test('summarize: 모든 영역·배열·무작위 조합에서 빈칸 없는 문
       }
     }
   }
-  assert.equal(n, 300 * 11 * 4);
+  assert.equal(n, 300 * 15 * 4);
 });
 
 test('summarize: 잘못된 입력은 오류', () => {
@@ -255,4 +264,47 @@ test('summarize: 잘못된 입력은 오류', () => {
   assert.throws(() => R.summarize(hand.slice(0, 2), 'love', 'time', {}));
   assert.throws(() => R.summarize(hand, 'nope', 'time', {}));
   assert.doesNotThrow(() => R.summarize(hand, 'love', 'nope', {})); // 모르는 배열은 첫 배열로
+});
+
+test('schoolFromAge: 연 나이 기준 7~12 초, 13~15 중, 16~18 고, 나머지 선택 안 함', () => {
+  const cases = [[null, 'none'], [undefined, 'none'], [NaN, 'none'], [6, 'none'], [7, 'elementary'], [12, 'elementary'],
+    [13, 'middle'], [15, 'middle'], [16, 'high'], [18, 'high'], [19, 'none'], [45, 'none']];
+  for (const [age, want] of cases) assert.equal(R.schoolFromAge(age), want, String(age));
+  assert.deepEqual(R.SCHOOLS.map((s) => s.key), ['none', 'elementary', 'middle', 'high']);
+  assert.equal(R.schoolLabel('middle'), '중학생');
+  assert.equal(R.schoolLabel('nope'), null);
+});
+
+test('friendSchoolText: 친구 관계 영역 + 학교를 골랐을 때만 나온다', () => {
+  const card = byId('cups_2');
+  assert.equal(R.friendSchoolText(card, 'friend', 'middle'), card.friendBySchool.middle);
+  assert.equal(R.friendSchoolText(card, 'friend', 'none'), '');
+  assert.equal(R.friendSchoolText(card, 'friend', undefined), '');
+  assert.equal(R.friendSchoolText(card, 'love', 'high'), '');
+  assert.equal(R.friendSchoolText(card, 'friend', 'nope'), '');
+});
+
+test('summarize: 최종 결론 한 줄과 지금 해 볼 일 — 배열별 문장', () => {
+  const hand = [byId('cups_2'), byId('cups_3'), byId('cups_4')]; // 화합, 즐거움, 권태
+  const time = R.summarize(hand, 'crush', 'time', {});
+  assert.equal(time.conclusion, '한 줄로 말하면, ‘화합’에서 시작한 흐름이 ‘즐거움’을 지나 ‘권태’로 이어집니다.');
+  assert.deepEqual(time.action, { cardName: '컵 4', text: byId('cups_4').advice });
+  const adv = R.summarize(hand, 'mind', 'advice', {});
+  assert.equal(adv.conclusion, '한 줄로 말하면, ‘화합’의 상황에서 ‘즐거움’을 붙잡으면 ‘권태’에 닿습니다.');
+  assert.equal(adv.action.cardName, '컵 3'); // 조언 자리 카드가 해 볼 일을 건넨다
+  const obs = R.summarize([byId('wands_2'), byId('pentacles_3'), byId('cups_9')], 'looks', 'obstacle', {});
+  assert.equal(obs.conclusion, '한 줄로 말하면, ‘계획’에서 ‘협업’이라는 걸림돌을 넘으면 ‘만족’에 닿습니다.');
+  const obs2 = R.summarize([byId('wands_2'), byId('cups_4'), byId('cups_9')], 'looks', 'obstacle', {});
+  assert.match(obs2.conclusion, /‘권태’라는 걸림돌/);
+  const rel = R.summarize(hand, 'allowance', 'relation', {});
+  assert.equal(rel.conclusion, '한 줄로 말하면, 나의 ‘화합’과 너의 ‘즐거움’이 만나 ‘권태’의 관계를 만듭니다.');
+  for (const s of [time, adv, obs, rel]) assert.ok(!/좋|나쁘|길하|흉/.test(s.conclusion), s.conclusion);
+});
+
+test('summarize: 친구 관계 + 학교급이면 결말에 맞춤 해석이 붙는다', () => {
+  const hand = [byId('cups_2'), byId('cups_3'), byId('swords_5')];
+  const s = R.summarize(hand, 'friend', 'time', { age: 14, gender: 'none', school: 'middle' });
+  assert.equal(s.endingText, byId('swords_5').areas.friend);
+  assert.equal(s.endingSchool, byId('swords_5').friendBySchool.middle);
+  assert.equal(s.opening, '14세의 친구 관계를 세 장으로 이어 읽으면 이렇습니다.'); // 학교는 첫머리에 넣지 않는다
 });
