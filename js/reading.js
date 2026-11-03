@@ -28,7 +28,8 @@
   var ROMAN = ['0', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII',
     'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI'];
 
-  // 질문 영역. source 'gyoan' = 교안의 7개 영역, 'added' = 사용자 요청으로 추가한 영역(전 카드 추론 해석)
+  // 질문 영역. source 'gyoan' = 교안의 7개 영역, 'added' = 사용자 요청으로 추가한 영역(전 카드 추론 해석),
+  // 'student' = 학생 고민 조사를 보고 v3에서 추가한 영역(전 카드 추론 해석)
   var AREAS = [
     { key: 'love', label: '연애 흐름', source: 'gyoan' },
     { key: 'heart', label: '상대의 속마음', source: 'gyoan' },
@@ -40,7 +41,19 @@
     { key: 'friend', label: '친구 관계', source: 'added' },
     { key: 'newterm', label: '새학기', source: 'added' },
     { key: 'career', label: '진로', source: 'added' },
-    { key: 'family', label: '가족', source: 'added' }
+    { key: 'family', label: '가족', source: 'added' },
+    { key: 'crush', label: '짝사랑·고백', source: 'student' },
+    { key: 'looks', label: '외모·자신감', source: 'student' },
+    { key: 'mind', label: '요즘 내 마음', source: 'student' },
+    { key: 'allowance', label: '용돈·돈 관리', source: 'student' }
+  ];
+
+  // 학교급. 친구 관계 영역에서만 학교급에 맞춘 해석을 덧붙인다.
+  var SCHOOLS = [
+    { key: 'none', label: '선택 안 함' },
+    { key: 'elementary', label: '초등학생' },
+    { key: 'middle', label: '중학생' },
+    { key: 'high', label: '고등학생' }
   ];
 
   // 성별 선택지. 해석 문장은 바꾸지 않고 결과 제목과 총평에만 쓴다.
@@ -53,11 +66,16 @@
   var AGE_MAX = 120;
 
   // 교안의 3장 가로 배열 4가지
+  // hints: 각 자리가 무엇을 보여 주는지 (세 장 요약표에 쓴다)
   var SPREADS = [
-    { key: 'time', label: '과거 / 현재 / 미래', positions: ['과거', '현재', '미래'] },
-    { key: 'advice', label: '상황 / 조언 / 결과', positions: ['상황', '조언', '결과'] },
-    { key: 'obstacle', label: '현재 / 장애 / 결과', positions: ['현재', '장애', '결과'] },
-    { key: 'relation', label: '나 / 너 / 우리', positions: ['나', '너', '우리'] }
+    { key: 'time', label: '과거 / 현재 / 미래', positions: ['과거', '현재', '미래'],
+      hints: ['지금 상황을 만든 지난 일', '지금 놓인 상황', '이대로 갈 때의 흐름'] },
+    { key: 'advice', label: '상황 / 조언 / 결과', positions: ['상황', '조언', '결과'],
+      hints: ['지금 놓인 상황', '카드가 건네는 방법', '조언을 따랐을 때'] },
+    { key: 'obstacle', label: '현재 / 장애 / 결과', positions: ['현재', '장애', '결과'],
+      hints: ['지금 놓인 상황', '앞을 막는 것', '걸림돌을 지난 뒤'] },
+    { key: 'relation', label: '나 / 너 / 우리', positions: ['나', '너', '우리'],
+      hints: ['내 마음과 태도', '상대의 마음과 태도', '두 사람 사이의 흐름'] }
   ];
 
   // 위키미디어 공용의 1909년 라이더-웨이트-스미스 원본(퍼블릭 도메인) 파일 이름.
@@ -81,7 +99,10 @@
       keywords: raw.keywords || [],
       summary: raw.summary || '',
       areas: raw.areas || {},
-      inferred: raw.inferred || []
+      inferred: raw.inferred || [],
+      symbols: raw.symbols || [],
+      friendBySchool: raw.friendBySchool || {},
+      advice: raw.advice || ''
     };
     if (raw.suit) {
       var suit = SUITS[raw.suit];
@@ -252,6 +273,30 @@
     return { ok: true, value: n };
   }
 
+  /**
+   * 나이로 학교급을 짐작한다. 학년은 태어난 해로 정해지므로 '올해 − 태어난 해'(연 나이) 기준:
+   * 7~12 초등, 13~15 중등, 16~18 고등, 그 밖이나 빈 값은 'none'.
+   * 만 나이로 적으면 한 살 어긋날 수 있어 화면에서 직접 고칠 수 있게 한다.
+   */
+  function schoolFromAge(age) {
+    if (typeof age !== 'number' || isNaN(age)) return 'none';
+    if (age >= 7 && age <= 12) return 'elementary';
+    if (age >= 13 && age <= 15) return 'middle';
+    if (age >= 16 && age <= 18) return 'high';
+    return 'none';
+  }
+
+  function schoolLabel(key) {
+    for (var i = 0; i < SCHOOLS.length; i++) if (SCHOOLS[i].key === key) return SCHOOLS[i].label;
+    return null;
+  }
+
+  /** 친구 관계 영역에서 학교급에 맞춘 해석. 해당 없으면 ''. */
+  function friendSchoolText(card, areaKey, schoolKey) {
+    if (areaKey !== 'friend' || !schoolKey || schoolKey === 'none') return '';
+    return (card.friendBySchool && card.friendBySchool[schoolKey]) || '';
+  }
+
   function genderLabel(key) {
     for (var i = 0; i < GENDERS.length; i++) if (GENDERS[i].key === key) return GENDERS[i].label;
     return null;
@@ -323,10 +368,41 @@
     relation: '두 사람의 관계는'
   };
 
+  function mainKeyword(card) {
+    return (card.keywords && card.keywords[0]) || card.nameKo;
+  }
+
+  /** 세 장의 대표 키워드로 만드는 한 줄 결론. 좋다·나쁘다 판정은 하지 않는다. */
+  function conclusionLine(hand, spreadKey) {
+    var x = mainKeyword(hand[0]);
+    var y = mainKeyword(hand[1]);
+    var z = mainKeyword(hand[2]);
+    var qx = '‘' + x + '’';
+    var qy = '‘' + y + '’';
+    var qz = '‘' + z + '’';
+    if (spreadKey === 'advice') {
+      return qx + '의 상황에서 ' + qy + josa(y, '을를') + ' 붙잡으면 ' + qz + '에 닿습니다.';
+    }
+    if (spreadKey === 'obstacle') {
+      return qx + '에서 ' + qy + (finalSound(y) ? '이라는' : '라는') + ' 걸림돌을 넘으면 ' + qz + '에 닿습니다.';
+    }
+    if (spreadKey === 'relation') {
+      return '나의 ' + qx + josa(x, '과와') + ' 너의 ' + qy + josa(y, '이가') + ' 만나 ' + qz + '의 관계를 만듭니다.';
+    }
+    return qx + '에서 시작한 흐름이 ' + qy + josa(y, '을를') + ' 지나 ' + qz + josa(z, '으로') + ' 이어집니다.';
+  }
+
+  /** '지금 해 볼 일'을 건네는 카드: 상황/조언/결과 배열은 조언 자리, 나머지는 마지막 자리. */
+  function actionCard(hand, spreadKey) {
+    return spreadKey === 'advice' ? hand[1] : hand[2];
+  }
+
   /**
    * 세 장을 하나의 이야기로 이어 읽은 총평 ("그래서 결말은?").
-   * profile: { age: 숫자|null, gender: 'none'|'female'|'male' } — 문장 첫머리에만 쓰고 해석은 바꾸지 않는다.
-   * 반환: { opening, flow: [문장 3개], endingLead, endingText, notes: [문장…] }
+   * profile: { age: 숫자|null, gender: 'none'|'female'|'male', school: SCHOOLS 키 }
+   *   나이·성별은 문장 첫머리에만 쓴다. 학교급은 친구 관계 영역에서만 결말에 맞춤 해석을 덧붙인다.
+   * 반환: { opening, flow: [문장 3개], endingLead, endingText, endingSchool, notes: [문장…],
+   *         conclusion, action: { cardName, text } }
    */
   function summarize(hand, areaKey, spreadKey, profile) {
     if (!hand || hand.length !== 3) throw new Error('카드 3장이 필요합니다');
@@ -379,7 +455,18 @@
       notes.push('마지막 카드가 메이저라, 결말은 겉으로 드러나는 일보다 마음과 태도에서 먼저 나타납니다.');
     }
 
-    return { opening: opening, flow: flow, endingLead: endingLead, endingText: endingText, notes: notes };
+    var school = (profile && profile.school) || 'none';
+    var endingSchool = friendSchoolText(c, areaKey, school);
+    var doer = actionCard(hand, spread.key);
+    var action = { cardName: doer.nameKo, text: doer.advice || '' };
+    if (!action.text) throw new Error(doer.id + ' 카드에 지금 해 볼 일이 없습니다');
+
+    return {
+      opening: opening, flow: flow, endingLead: endingLead, endingText: endingText,
+      endingSchool: endingSchool, notes: notes,
+      conclusion: '한 줄로 말하면, ' + conclusionLine(hand, spread.key),
+      action: action
+    };
   }
 
   var Reading = {
@@ -399,6 +486,11 @@
     areaLabel: areaLabel,
     spreadByKey: spreadByKey,
     GENDERS: GENDERS,
+    SCHOOLS: SCHOOLS,
+    schoolFromAge: schoolFromAge,
+    schoolLabel: schoolLabel,
+    friendSchoolText: friendSchoolText,
+    conclusionLine: conclusionLine,
     parseAge: parseAge,
     profileText: profileText,
     josa: josa,

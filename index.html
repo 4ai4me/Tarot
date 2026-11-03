@@ -37,8 +37,12 @@
           <legend class="field-label">성별 <small>(선택)</small></legend>
           <div id="genders" class="chips"></div>
         </fieldset>
+        <fieldset class="choice">
+          <legend class="field-label">학교 <small>(나이를 넣으면 자동으로 골라짐, 학년과 다르면 직접 고르세요)</small></legend>
+          <div id="schools" class="chips"></div>
+        </fieldset>
         <p id="age-error" class="field-error" aria-live="polite"></p>
-        <p class="profile-note">나이와 성별은 결과 제목과 총평에만 쓰이고, 질문처럼 어디에도 저장되지 않습니다.</p>
+        <p class="profile-note">나이와 성별은 결과 제목과 총평에만, 학교는 친구 관계 해석에만 쓰입니다. 질문처럼 어디에도 저장되지 않습니다.</p>
       </div>
 
       <fieldset class="choice">
@@ -60,12 +64,20 @@
     <section id="result" class="result" hidden aria-labelledby="result-title">
       <h2 id="result-title" class="result-title"></h2>
       <div id="table" class="table"></div>
+      <section class="hand-list" aria-labelledby="hand-title">
+        <h3 id="hand-title" class="hand-title">나온 카드 한눈에 보기</h3>
+        <ol id="hand-rows" class="hand-rows"></ol>
+      </section>
       <p id="center-effect" class="center-effect"></p>
       <div id="readings" class="readings"></div>
       <section id="summary" class="summary" aria-labelledby="summary-title">
         <h3 id="summary-title" class="summary-title">그래서 결말은?</h3>
         <div id="summary-body" class="summary-body"></div>
       </section>
+      <aside id="support" class="support" hidden>
+        <p><strong>마음이 많이 힘들 때는 혼자 견디지 마세요.</strong> 카드보다 사람이 더 큰 힘이 됩니다.</p>
+        <p>청소년상담 1388 — 24시간 전화(휴대폰은 지역번호 + 1388)·문자 1388·카카오톡 ‘청소년상담1388’·www.1388.go.kr<br>학교 Wee클래스, 담임선생님, 믿을 수 있는 어른에게 이야기해도 좋아요.</p>
+      </aside>
       <div class="again">
         <button id="redraw" type="button" class="redraw">같은 질문으로 다시 뽑기</button>
       </div>

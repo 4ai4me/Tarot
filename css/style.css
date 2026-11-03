@@ -414,9 +414,56 @@ body {
   margin: 14px 0 0;
   word-break: keep-all;
 }
-.reading-more { margin-top: 12px; font-size: 0.92rem; color: var(--ink-soft); }
-.reading-more summary { cursor: pointer; font-weight: 600; color: var(--ink); }
-.reading-more p { margin: 8px 0 0; line-height: 1.7; }
+.reading-school {
+  margin: 10px 0 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--sky);
+  font-size: 0.97rem;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.reading-school strong { font-weight: 600; }
+/* 이 카드는 — 카드 설명과 그림 속 상징 (항상 펼쳐 둔다) */
+.reading-about {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.reading-about p { margin: 0; }
+.reading-about .reading-about-title { font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.symbols { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; }
+.symbols li { padding-left: 14px; position: relative; }
+.symbols li::before { content: '◆'; position: absolute; left: 0; top: 0; font-size: 0.6rem; line-height: 2.6; color: var(--sky); }
+.symbol-name { font-weight: 600; color: var(--ink); }
+
+/* 나온 카드 한눈에 보기 */
+.hand-list { max-width: 680px; margin: 28px auto 0; }
+.hand-title { font-family: var(--serif); font-size: 1.1rem; margin: 0 0 8px; }
+.hand-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.hand-row {
+  display: grid;
+  grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr);
+  gap: 4px 12px;
+  padding: 8px 12px;
+  border-left: 5px solid var(--major);
+  background: color-mix(in srgb, var(--paper) 70%, var(--stock));
+}
+.hand-row.el-fire { border-left-color: var(--fire); }
+.hand-row.el-water { border-left-color: var(--water); }
+.hand-row.el-air { border-left-color: var(--air); }
+.hand-row.el-earth { border-left-color: var(--earth); }
+.hand-row p { margin: 0; word-break: keep-all; }
+.hand-pos strong { display: block; }
+.hand-pos span { display: block; font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; }
+.hand-name { font-weight: 600; }
+.hand-kw { font-size: 0.88rem; color: var(--ink-soft); }
+@media (max-width: 420px) {
+  .hand-row { grid-template-columns: minmax(0, 1fr); }
+}
 
 /* 총평: 그래서 결말은? */
 .summary {
@@ -455,6 +502,37 @@ body {
 }
 .summary-body .summary-note { margin-top: 12px; font-size: 0.95rem; color: var(--ink-soft); line-height: 1.7; }
 .summary-error { color: var(--clash); }
+.summary-body .summary-school { font-size: 1rem; margin-top: 8px; }
+
+/* 최종 결론 */
+.conclusion {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 2px solid var(--ink);
+}
+.summary-body .conclusion-title { font-weight: 600; font-size: 0.92rem; letter-spacing: 0.04em; }
+.summary-body .conclusion-line {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-top: 4px;
+  font-weight: 700;
+}
+.summary-body .conclusion-action { margin-top: 10px; line-height: 1.7; }
+.conclusion-from { font-size: 0.88rem; color: var(--ink-soft); }
+
+/* 요즘 내 마음 영역: 상담 안내 */
+.support {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-left: 5px solid var(--support);
+  background: color-mix(in srgb, var(--paper) 70%, var(--stock));
+  font-size: 0.95rem;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.support p { margin: 0; }
+.support p + p { margin-top: 6px; }
 
 .again { margin-top: 36px; text-align: center; }
 .redraw {

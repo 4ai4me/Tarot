@@ -18,7 +18,7 @@
   };
 
   var deck;
-  var state = { area: null, spread: R.SPREADS[0].key, gender: 'none', hand: null };
+  var state = { area: null, spread: R.SPREADS[0].key, gender: 'none', school: 'none', hand: null };
 
   function showLoadError(message) {
     var box = $('load-error');
@@ -63,12 +63,21 @@
     var genders = $('genders');
     R.GENDERS.forEach(function (g) { genders.appendChild(chip('gender', g.key, g.label, g.key === state.gender)); });
 
+    var schools = $('schools');
+    R.SCHOOLS.forEach(function (s) { schools.appendChild(chip('school', s.key, s.label, s.key === state.school)); });
+
     genders.addEventListener('change', function (e) {
       state.gender = e.target.value;
       if (state.hand) render(false);
     });
+    schools.addEventListener('change', function (e) {
+      state.school = e.target.value;
+      if (state.hand) render(false);
+    });
     $('age').addEventListener('input', function () {
-      checkAge();
+      var parsed = checkAge();
+      // 나이가 바뀔 때마다 학교를 다시 짐작한다. 그 뒤에 직접 고른 학교는 그대로 둔다.
+      if (parsed.ok) setSchool(R.schoolFromAge(parsed.value));
       if (state.hand) render(false);
     });
 
@@ -99,10 +108,16 @@
     return parsed;
   }
 
-  /** 지금 입력된 나이·성별. 잘못된 나이는 빼고 쓴다 (오류 문구는 checkAge가 보여 준다). */
+  function setSchool(key) {
+    state.school = key;
+    var inputs = $('schools').querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) inputs[i].checked = inputs[i].value === key;
+  }
+
+  /** 지금 입력된 나이·성별·학교. 잘못된 나이는 빼고 쓴다 (오류 문구는 checkAge가 보여 준다). */
   function currentProfile() {
     var parsed = R.parseAge($('age').value);
-    return { age: parsed.ok ? parsed.value : null, gender: state.gender };
+    return { age: parsed.ok ? parsed.value : null, gender: state.gender, school: state.school };
   }
 
   function drawAndShow() {
@@ -225,11 +240,48 @@
     card.keywords.forEach(function (k) { kw.appendChild(el('li', null, k)); });
     art.appendChild(kw);
     art.appendChild(el('p', 'reading-text', card.areas[state.area]));
-    var more = el('details', 'reading-more');
-    more.appendChild(el('summary', null, '카드 설명'));
-    more.appendChild(el('p', null, card.summary));
-    art.appendChild(more);
+    var schoolText = R.friendSchoolText(card, state.area, state.school);
+    if (schoolText) {
+      var extra = el('p', 'reading-school');
+      extra.appendChild(el('strong', null, R.schoolLabel(state.school) + ' 친구 관계로 보면 '));
+      extra.appendChild(document.createTextNode(schoolText));
+      art.appendChild(extra);
+    }
+    var about = el('div', 'reading-about');
+    about.appendChild(el('p', 'reading-about-title', '이 카드는'));
+    about.appendChild(el('p', null, card.summary));
+    if (card.symbols.length) {
+      var sym = el('ul', 'symbols');
+      sym.setAttribute('aria-label', '그림 속 상징');
+      card.symbols.forEach(function (s) {
+        var parts = s.split(': ');
+        var li = el('li');
+        li.appendChild(el('span', 'symbol-name', parts[0]));
+        if (parts[1]) li.appendChild(document.createTextNode(' ' + parts.slice(1).join(': ')));
+        sym.appendChild(li);
+      });
+      about.appendChild(sym);
+    }
+    art.appendChild(about);
     return art;
+  }
+
+  /** 세 장을 자리 뜻·이름·키워드·원소로 한 줄씩 정리한 목록 */
+  function handRows(hand, spread) {
+    var list = $('hand-rows');
+    list.textContent = '';
+    hand.forEach(function (card, i) {
+      var li = el('li', 'hand-row ' + (card.element ? 'el-' + card.element : 'el-major'));
+      var pos = el('p', 'hand-pos');
+      pos.appendChild(el('strong', null, spread.positions[i]));
+      pos.appendChild(el('span', null, spread.hints[i]));
+      li.appendChild(pos);
+      var body = el('div', 'hand-body');
+      body.appendChild(el('p', 'hand-name', card.nameKo + ' · ' + (card.element ? R.ELEMENTS[card.element].ko : '메이저')));
+      body.appendChild(el('p', 'hand-kw', card.keywords.slice(0, 3).join(' · ')));
+      li.appendChild(body);
+      list.appendChild(li);
+    });
   }
 
   function summaryElement(hand) {
@@ -247,8 +299,19 @@
     var ending = el('div', 'summary-ending');
     ending.appendChild(el('p', 'summary-lead', s.endingLead));
     ending.appendChild(el('p', 'summary-text', s.endingText));
+    if (s.endingSchool) ending.appendChild(el('p', 'summary-text summary-school', s.endingSchool));
     frag.appendChild(ending);
     s.notes.forEach(function (n) { frag.appendChild(el('p', 'summary-note', n)); });
+
+    var last = el('div', 'conclusion');
+    last.appendChild(el('p', 'conclusion-title', '최종 결론'));
+    last.appendChild(el('p', 'conclusion-line', s.conclusion));
+    var act = el('p', 'conclusion-action');
+    act.appendChild(el('strong', null, '지금 해 볼 일 '));
+    act.appendChild(el('span', 'conclusion-from', '(' + s.action.cardName + ' 카드) '));
+    act.appendChild(document.createTextNode(s.action.text));
+    last.appendChild(act);
+    frag.appendChild(last);
     return frag;
   }
 
@@ -269,6 +332,7 @@
       table.appendChild(cardElement(card, spread.positions[i], i, animate));
       if (i < 2) table.appendChild(linkElement(card, hand[i + 1]));
     });
+    handRows(hand, spread);
 
     var effect = R.centerEffect(hand);
     var box = $('center-effect');
@@ -288,6 +352,7 @@
     summaryBody.textContent = '';
     summaryBody.appendChild(summaryElement(hand));
 
+    $('support').hidden = state.area !== 'mind';
     $('result').hidden = false;
   }
 
